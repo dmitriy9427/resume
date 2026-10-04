@@ -14,9 +14,8 @@ export type L = { ru: string; en: string }
 
 // ─── Профиль ────────────────────────────────────────────────────────────────
 export const profile = {
-  // TODO: имя и фамилия
   name: { ru: 'Дмитрий', en: 'Dmitry' } as L,
-  surname: { ru: 'Фамилия', en: 'Surname' } as L,
+  surname: { ru: 'Рябов', en: 'Ryabov' } as L,
   role: { ru: 'Frontend-разработчик', en: 'Frontend Developer' } as L,
   // TODO: город
   location: { ru: 'Россия · удалённо', en: 'Russia · remote' } as L,
