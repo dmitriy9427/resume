@@ -1,0 +1,82 @@
+// Контакты.
+@use 'abstracts' as *;
+
+.contact {
+  position: relative;
+  overflow: hidden;
+
+  // Свечение за заголовком.
+  &::before {
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    z-index: -1;
+    width: 90vw;
+    height: 70%;
+    content: '';
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--color-accent) 45%, transparent), transparent);
+    transform: translateX(-50%);
+  }
+}
+
+.contact__inner {
+  display: grid;
+  gap: space(8);
+  justify-items: start;
+  padding-bottom: fluid(40px, 80px);
+}
+
+.contact__title {
+  max-width: 14ch;
+  font-size: fluid(44px, 120px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.contact__lead {
+  max-width: 44ch;
+  font-size: fluid(17px, 21px);
+}
+
+.contact__mail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(4);
+  align-items: center;
+}
+
+.contact__email {
+  font-family: var(--font-heading);
+  font-size: fluid(24px, 52px);
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--color-text), var(--color-accent), $accent-2);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact__links {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(3);
+
+  a {
+    display: block;
+    padding: space(3) space(5);
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: radius('pill');
+    transition:
+      background-color var(--duration),
+      color var(--duration);
+
+    @include hover {
+      color: var(--color-accent-contrast);
+      background: var(--color-accent);
+    }
+  }
+}

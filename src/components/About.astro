@@ -1,0 +1,64 @@
+---
+/** Обо мне + цифры + опыт работы. Тексты — profile, stats, experience в src/data/resume.ts. */
+import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { experience, profile, stats } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+---
+
+<section class="section about" id="about">
+  <div class="container about__grid">
+    <h2 class="section-title" data-reveal><span class="section-title__index">01</span>{t('about.title')}</h2>
+    <div class="about__text">
+      {
+        profile.about.map((paragraph, i) => (
+          <p class={i === 0 ? 'about__lead' : 'muted'} data-reveal>
+            {pick(paragraph, locale)}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="container stats">
+    {
+      stats.map((stat) => (
+        <div class="stat" data-reveal>
+          <span class="stat__value counter" data-module="counter" data-counter-suffix={stat.suffix}>
+            {stat.value}
+          </span>
+          <span class="stat__label">{pick(stat.label, locale)}</span>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="container experience">
+    <h3 class="experience__title" data-reveal>{t('experience.title')}</h3>
+    {
+      experience.map((job) => (
+        <article class="job" data-reveal>
+          <div class="job__head">
+            <p class="job__period">{pick(job.period, locale)}</p>
+            <h4 class="job__company">
+              {job.href ? (
+                <a href={job.href} target="_blank" rel="noopener">
+                  {job.company}
+                </a>
+              ) : (
+                job.company
+              )}
+            </h4>
+            <p class="job__role">{pick(job.role, locale)}</p>
+          </div>
+          <ul class="job__points">
+            {job.points.map((point) => (
+              <li>{pick(point, locale)}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

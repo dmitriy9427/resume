@@ -1,0 +1,53 @@
+---
+/** Шапка: монограмма, якорное меню, языки, тема, бургер. */
+import { LOCALES, asLocale, localePath, pick, stripLocale, useTranslations } from '../i18n/ui'
+import { profile } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+const path = stripLocale(Astro.url.pathname)
+const home = localePath(locale, '/')
+const initials = `${pick(profile.name, locale)[0]}${pick(profile.surname, locale)[0]}`
+const links = [
+  ['#about', t('nav.about')],
+  ['#skills', t('nav.skills')],
+  ['#projects', t('nav.projects')],
+  ['#pets', t('nav.pets')],
+  ['#contact', t('nav.contact')],
+]
+---
+
+<header class="header" data-module="sticky-header">
+  <div class="header__inner">
+    <a class="logo" href={home} aria-label={pick(profile.name, locale)}>
+      <span class="logo__mark">{initials}</span>
+      <span class="logo__name">{pick(profile.name, locale)}</span>
+    </a>
+    <nav id="site-menu" class="nav mobile-menu" aria-label="Menu" data-lenis-prevent>
+      <ul class="nav__list">
+        {
+          links.map(([href, label]) => (
+            <li>
+              <a class="nav__link" href={href}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <nav class="lang-switch" data-module="lang-switch" aria-label="Language">
+        {
+          LOCALES.map((l) => (
+            <a href={localePath(l, path)} hreflang={l} lang={l}>
+              {l.toUpperCase()}
+            </a>
+          ))
+        }
+      </nav>
+      <button class="theme-switch" data-module="theme-switch" aria-label="Theme"></button>
+      <button class="burger" data-module="menu" data-menu-target="site-menu"><span class="burger__lines"></span></button>
+    </div>
+  </div>
+</header>

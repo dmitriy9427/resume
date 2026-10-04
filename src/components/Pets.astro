@@ -1,0 +1,66 @@
+---
+/**
+ * Пет-проекты: карточки «стопкой» при прокрутке, в каждой — галерея
+ * скриншотов (Swiper, плавная смена). Данные — pets в src/data/resume.ts,
+ * скриншоты — public/projects/.
+ */
+import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { pets } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+---
+
+<section class="section pets" id="pets">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title" data-reveal><span class="section-title__index">04</span>{t('pets.title')}</h2>
+      <p class="section-head__lead muted" data-reveal>{t('pets.lead')}</p>
+    </div>
+    <div class="stack-cards" data-module="stack-cards">
+      {
+        pets.map((pet, i) => (
+          <article class="stack-cards__item pet" data-stack-card>
+            <div class="pet__info">
+              <p class="pet__index">0{i + 1}</p>
+              <h3 class="pet__title">{pick(pet.title, locale)}</h3>
+              <p class="pet__subtitle">{pick(pet.subtitle, locale)}</p>
+              <p class="pet__text">{pick(pet.description, locale)}</p>
+              <ul class="chips chips--sm">
+                {pet.stack.map((item) => (
+                  <li class="chip">{item}</li>
+                ))}
+              </ul>
+              <div class="pet__links">
+                {pet.demo ? (
+                  <a class="btn" href={pet.demo} target="_blank" rel="noopener">
+                    {t('pets.demo')} ↗
+                  </a>
+                ) : (
+                  <span class="btn btn--secondary is-disabled" aria-disabled="true">
+                    {t('pets.demo')} · {t('pets.soon')}
+                  </span>
+                )}
+                {pet.repo && (
+                  <a class="btn btn--ghost" href={pet.repo} target="_blank" rel="noopener">
+                    {t('pets.repo')} ↗
+                  </a>
+                )}
+              </div>
+            </div>
+            <div class="pet__gallery swiper" data-module="swiper" data-swiper-preset="fade" data-cursor={t('cursor.drag')}>
+              <div class="swiper-wrapper">
+                {pet.images.map((src) => (
+                  <div class="swiper-slide">
+                    <img src={src} alt={pick(pet.title, locale)} width="1440" height="804" loading="lazy" decoding="async" />
+                  </div>
+                ))}
+              </div>
+              <div class="swiper-pagination" />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

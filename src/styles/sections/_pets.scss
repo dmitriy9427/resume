@@ -1,0 +1,64 @@
+// Пет-проекты — карточки стопкой.
+@use 'abstracts' as *;
+
+.pet {
+  display: grid;
+  gap: space(6);
+  padding: fluid(20px, 40px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: radius('lg');
+  box-shadow: 0 -20px 60px rgb(0 0 0 / 30%);
+
+  @include up('lg') {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    min-height: min(78svh, #{rem(680px)});
+  }
+}
+
+.pet__info {
+  display: grid;
+  gap: space(4);
+  align-content: start;
+}
+
+.pet__index {
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+
+.pet__title {
+  font-size: fluid(36px, 72px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.pet__subtitle {
+  font-size: fluid(17px, 20px);
+  color: var(--color-muted);
+}
+
+.pet__text {
+  font-size: fluid(15px, 17px);
+}
+
+.pet__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(3);
+  margin-top: space(2);
+}
+
+.pet__gallery {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--color-border);
+  border-radius: radius('md');
+
+  img {
+    @include object-cover;
+
+    object-position: top;
+  }
+}

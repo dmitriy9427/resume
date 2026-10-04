@@ -1,0 +1,93 @@
+// Проекты в продакшне.
+@use 'abstracts' as *;
+
+.flip-filter__tabs {
+  sup {
+    margin-left: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    opacity: 0.6;
+  }
+}
+
+.projects__grid {
+  display: grid;
+  // dense: обычные карточки заполняют дыры рядом с широкими (featured).
+  grid-auto-flow: dense;
+  gap: space(4);
+
+  @include up('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include up('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: space(4);
+  padding: fluid(22px, 32px);
+
+  @include up('lg') {
+    &--featured {
+      grid-column: span 2;
+      background:
+        radial-gradient(80% 120% at 100% 0%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 60%),
+        var(--color-surface);
+    }
+  }
+}
+
+.project__top {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: rem(12px);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project__title {
+  font-size: fluid(20px, 26px);
+  font-weight: 600;
+  line-height: 1.2;
+
+  .project--featured & {
+    font-size: fluid(24px, 34px);
+  }
+}
+
+.project__text {
+  flex: 1;
+  color: var(--color-muted);
+}
+
+.project__link {
+  align-self: flex-start;
+  margin-top: space(2);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+
+  span {
+    display: inline-block;
+    transition: transform var(--duration) var(--ease);
+  }
+
+  @include hover {
+    span {
+      transform: translate(3px, -3px);
+    }
+  }
+
+  &--nda {
+    font-family: var(--font-mono);
+    font-size: rem(12px);
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+}

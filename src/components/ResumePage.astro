@@ -1,0 +1,19 @@
+---
+/**
+ * Вся страница резюме — общая для всех языков (pages/index.astro и
+ * pages/en/index.astro только подключают её). Порядок секций — здесь.
+ */
+import Hero from './Hero.astro'
+import About from './About.astro'
+import Skills from './Skills.astro'
+import Projects from './Projects.astro'
+import Pets from './Pets.astro'
+import Contact from './Contact.astro'
+---
+
+<Hero />
+<About />
+<Skills />
+<Projects />
+<Pets />
+<Contact />

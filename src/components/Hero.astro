@@ -1,0 +1,45 @@
+---
+/**
+ * Первый экран: WebGL-«сияние», имя крупно, роль, коротко о себе, кнопки,
+ * бегущая строка технологий. Тексты — src/data/resume.ts (profile, marquee).
+ */
+import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { marquee, profile } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <canvas class="aurora" data-module="aurora" aria-hidden="true"></canvas>
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <p class="hero__meta" data-reveal="fade">
+      {
+        profile.available && (
+          <span class="badge">
+            <span class="badge__dot" />
+            {pick(profile.availableText, locale)}
+          </span>
+        )
+      }
+      <span class="hero__location">{pick(profile.location, locale)}</span>
+    </p>
+    <h1 class="hero__title" id="hero-title">
+      <span class="hero__line" data-module="split-text" data-split-text-type="chars">{pick(profile.name, locale)}</span>
+      <span class="hero__line hero__line--outline" data-module="split-text" data-split-text-type="chars">{pick(profile.surname, locale)}</span>
+    </h1>
+    <p class="hero__role" data-module="scramble-text">{pick(profile.role, locale)}</p>
+    <p class="hero__pitch" data-reveal>{pick(profile.pitch, locale)}</p>
+    <div class="hero__actions" data-reveal>
+      <a class="btn btn--lg" href="#contact" data-module="magnetic">{t('hero.cta')}</a>
+      <a class="btn btn--lg btn--ghost" href="#projects" data-module="magnetic">{t('hero.projects')}</a>
+    </div>
+  </div>
+  <div class="hero__marquee marquee" data-module="marquee" data-marquee-speed="40" aria-hidden="true">
+    <ul class="marquee__track" data-marquee-track>
+      {marquee.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <a class="hero__scroll" href="#about" aria-label={t('hero.scroll')}><span>{t('hero.scroll')}</span></a>
+</section>

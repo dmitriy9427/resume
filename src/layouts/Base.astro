@@ -1,0 +1,71 @@
+---
+/**
+ * Каркас страницы: <head> (SEO, hreflang, Open Graph), шрифты, шапка,
+ * подвал, курсор, полоса прогресса, запуск модулей.
+ */
+import '@fontsource-variable/unbounded'
+import '@fontsource-variable/manrope'
+import '@fontsource-variable/jetbrains-mono'
+import '../styles/main.scss'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { LOCALES, asLocale, localePath, pick, stripLocale, useTranslations } from '../i18n/ui'
+import { profile } from '../data/resume'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+const fullName = `${pick(profile.name, locale)} ${pick(profile.surname, locale)}`
+const { title = `${fullName} — ${t('meta.title')}`, description = t('meta.description') } = Astro.props
+const path = stripLocale(Astro.url.pathname)
+const canonical = new URL(Astro.url.pathname, Astro.site)
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={fullName} />
+    <link rel="canonical" href={canonical} />
+    {LOCALES.map((l) => <link rel="alternate" hreflang={l} href={new URL(localePath(l, path), Astro.site)} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(localePath('ru', path), Astro.site)} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/og.jpg', Astro.site)} />
+    <meta property="og:locale" content={locale === 'ru' ? 'ru_RU' : 'en_US'} />
+    <meta name="theme-color" content="#07070d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {/* До отрисовки: класс .js и тема. По умолчанию — тёмная (сайт задуман тёмным). */}
+    <script is:inline>
+      document.documentElement.classList.add('js')
+      try {
+        var t = JSON.parse(localStorage.getItem('theme'))
+        document.documentElement.dataset.theme = t === 'light' ? 'light' : 'dark'
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t('skip')}</a>
+    <div class="scroll-progress" data-module="scroll-progress"></div>
+    <Header />
+    <main id="main" data-module="reveal">
+      <slot />
+    </main>
+    <Footer />
+    <div class="cursor" data-module="cursor"></div>
+    <script>
+      import '../scripts/app'
+    </script>
+  </body>
+</html>

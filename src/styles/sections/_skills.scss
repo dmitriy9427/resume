@@ -1,0 +1,37 @@
+// Навыки — «бенто»-сетка.
+@use 'abstracts' as *;
+
+.bento {
+  display: grid;
+  gap: space(4);
+
+  @include up('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include up('lg') {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.bento__card {
+  display: grid;
+  gap: space(5);
+  align-content: start;
+  padding: fluid(24px, 36px);
+
+  @include up('lg') {
+    grid-column: span 2;
+
+    // Первые две карточки шире — неровная сетка смотрится живее.
+    &--1,
+    &--2 {
+      grid-column: span 3;
+    }
+  }
+}
+
+.bento__title {
+  font-size: fluid(22px, 30px);
+  font-weight: 600;
+}

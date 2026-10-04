@@ -1,0 +1,45 @@
+---
+/** Контакты: крупный призыв, e-mail с копированием, ссылки, PDF. Данные — contacts в src/data/resume.ts. */
+import { asLocale, useTranslations } from '../i18n/ui'
+import { contacts } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+const links = contacts.links.filter((link) => link.href)
+---
+
+<section class="section contact" id="contact">
+  <div class="container contact__inner">
+    <p class="section-title__index" data-reveal>05</p>
+    <h2 class="contact__title" data-module="split-text" data-split-text-type="words">{t('contact.title')}</h2>
+    <p class="contact__lead muted" data-reveal>{t('contact.lead')}</p>
+    <div class="contact__mail" data-reveal>
+      <a class="contact__email" href={`mailto:${contacts.email}`} data-module="magnetic" data-magnetic-strength="0.15">
+        {contacts.email}
+      </a>
+      <button class="btn btn--secondary" data-module="copy-text" data-copy={contacts.email} data-copied={t('contact.copied')}>
+        {t('contact.copy')}
+      </button>
+    </div>
+    <ul class="contact__links" data-reveal>
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noopener" data-cursor="↗">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      {
+        contacts.cv && (
+          <li>
+            <a href={contacts.cv} download>
+              {t('contact.cv')}
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</section>

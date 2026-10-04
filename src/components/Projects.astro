@@ -1,0 +1,62 @@
+---
+/**
+ * Проекты в продакшне: фильтр по категориям (Flip-анимация, фильтр в адресе)
+ * и карточки. Данные — categories и projects в src/data/resume.ts.
+ * Ключевые проекты (featured) — карточки на две колонки.
+ */
+import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { categories, projects } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+const used = Object.keys(categories).filter((key) => projects.some((p) => p.category === key))
+---
+
+<section class="section projects" id="projects" data-module="flip-filter">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title" data-reveal><span class="section-title__index">03</span>{t('projects.title')}</h2>
+      <p class="section-head__lead muted" data-reveal>{t('projects.lead')}</p>
+    </div>
+    <div class="flip-filter__tabs" data-reveal>
+      <button data-filter="all" aria-pressed="true">{t('projects.all')} <sup>{projects.length}</sup></button>
+      {
+        used.map((key) => (
+          <button data-filter={key}>
+            {pick(categories[key], locale)} <sup>{projects.filter((p) => p.category === key).length}</sup>
+          </button>
+        ))
+      }
+    </div>
+    <div class="projects__grid" data-module="spotlight">
+      {
+        projects.map((project) => (
+          <article
+            class:list={['project spot', { 'project--featured': project.featured }]}
+            data-flip-item
+            data-category={project.category}
+          >
+            <div class="project__top">
+              <span class="project__category">{pick(categories[project.category], locale)}</span>
+              <span class="project__year">{project.year}</span>
+            </div>
+            <h3 class="project__title">{pick(project.title, locale)}</h3>
+            <p class="project__text">{pick(project.description, locale)}</p>
+            <ul class="chips chips--sm">
+              {project.stack.map((item) => (
+                <li class="chip">{item}</li>
+              ))}
+            </ul>
+            {project.href ? (
+              <a class="project__link" href={project.href} target="_blank" rel="noopener" data-cursor={t('cursor.open')}>
+                {t('projects.open')} <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <span class="project__link project__link--nda">{t('projects.nda')}</span>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

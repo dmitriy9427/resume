@@ -1,0 +1,285 @@
+// Общее: фон, шапка, заголовки секций, чипсы, бейдж, подвал.
+@use 'abstracts' as *;
+
+:root[data-theme='dark'] {
+  --color-border: rgb(255 255 255 / 8%);
+  --glass: rgb(16 16 26 / 60%);
+}
+
+:root[data-theme='light'] {
+  --glass: rgb(255 255 255 / 70%);
+}
+
+body {
+  overflow-x: clip;
+  font-feature-settings: 'ss01';
+}
+
+::selection {
+  color: #fff;
+  background: var(--color-accent);
+}
+
+// ─── Шапка ──────────────────────────────────────────────────────────────────
+// Плавающая (fixed), а не sticky: фон первого экрана уходит под неё.
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+}
+
+.header::before {
+  background: var(--glass);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header:not(.is-scrolled)::before {
+  background: transparent;
+  border-color: transparent;
+  backdrop-filter: none;
+}
+
+.logo {
+  display: flex;
+  gap: space(3);
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo__mark {
+  display: grid;
+  place-items: center;
+  width: rem(40px);
+  height: rem(40px);
+  font-family: var(--font-heading);
+  font-size: rem(14px);
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent), $accent-2);
+  border-radius: rem(12px);
+}
+
+.logo__name {
+  @include down('sm') {
+    display: none;
+  }
+}
+
+.nav__list {
+  @include reset-list;
+
+  display: flex;
+  flex-direction: column;
+  gap: space(5);
+  font-family: var(--font-heading);
+  font-size: rem(28px);
+
+  @include up('lg') {
+    flex-direction: row;
+    gap: space(1);
+    padding: space(1);
+    font-family: var(--font-base);
+    font-size: rem(15px);
+    background: var(--glass);
+    border: 1px solid var(--color-border);
+    border-radius: radius('pill');
+    backdrop-filter: blur(12px);
+  }
+}
+
+.nav__link {
+  display: block;
+  text-decoration: none;
+
+  @include up('lg') {
+    padding: space(2) space(4);
+    color: var(--color-muted);
+    border-radius: radius('pill');
+    transition:
+      color var(--duration),
+      background-color var(--duration);
+
+    @include hover {
+      color: var(--color-text);
+      background: var(--color-surface);
+    }
+  }
+}
+
+.header__actions {
+  display: flex;
+  gap: space(2);
+  align-items: center;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  font-family: var(--font-mono);
+  font-size: rem(12px);
+  border: 1px solid var(--color-border);
+  border-radius: radius('pill');
+
+  a {
+    padding: 4px 8px;
+    color: var(--color-muted);
+    text-decoration: none;
+    border-radius: radius('pill');
+
+    &[aria-current] {
+      color: var(--color-accent-contrast);
+      background: var(--color-accent);
+    }
+  }
+}
+
+// ─── Заголовки секций ───────────────────────────────────────────────────────
+.section-head {
+  display: grid;
+  gap: space(4);
+  margin-bottom: fluid(32px, 64px);
+
+  @include up('lg') {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+}
+
+.section-title {
+  display: flex;
+  gap: space(4);
+  align-items: baseline;
+  font-size: fluid(32px, 64px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.section-title__index {
+  font-family: var(--font-mono);
+  font-size: rem(13px);
+  font-weight: 400;
+  color: var(--color-accent);
+  letter-spacing: 0;
+}
+
+.section-head__lead {
+  max-width: 46ch;
+  font-size: fluid(16px, 18px);
+
+  @include up('lg') {
+    justify-self: end;
+  }
+}
+
+// ─── Чипсы ──────────────────────────────────────────────────────────────────
+.chips {
+  @include reset-list;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(2);
+}
+
+.chip {
+  padding: space(1) space(3);
+  font-size: rem(14px);
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: radius('pill');
+}
+
+.chips--sm .chip {
+  padding: 2px space(2);
+  font-family: var(--font-mono);
+  font-size: rem(12px);
+}
+
+// ─── Бейдж «открыт к проектам» ───────────────────────────────────────────────
+.badge {
+  display: inline-flex;
+  gap: space(2);
+  align-items: center;
+  padding: space(1) space(3);
+  font-size: rem(13px);
+  background: var(--glass);
+  border: 1px solid var(--color-border);
+  border-radius: radius('pill');
+  backdrop-filter: blur(8px);
+}
+
+.badge__dot {
+  width: 8px;
+  height: 8px;
+  background: #3ddc84;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgb(61 220 132 / 60%);
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgb(61 220 132 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(61 220 132 / 0%);
+  }
+}
+
+// ─── «Прожектор» на карточках (модуль spotlight) ────────────────────────────
+.spot {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: radius('lg');
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: '';
+    background: radial-gradient(
+      420px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+      color-mix(in srgb, var(--color-accent) 18%, transparent),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  @include hover {
+    border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-border));
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.btn.is-disabled {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+// ─── Подвал ─────────────────────────────────────────────────────────────────
+.footer {
+  padding-block: space(8);
+  font-size: rem(14px);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(4);
+  justify-content: space-between;
+}
+
+.not-found {
+  min-height: 70svh;
+  place-content: center;
+}

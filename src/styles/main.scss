@@ -1,0 +1,11 @@
+// Главный файл стилей резюме. ПОРЯДОК ВАЖЕН: настройки → кит → свои стили.
+@use 'abstracts';
+@use 'kit/scss';
+
+@use 'layout';
+@use 'sections/hero';
+@use 'sections/about';
+@use 'sections/skills';
+@use 'sections/projects';
+@use 'sections/pets';
+@use 'sections/contact';
