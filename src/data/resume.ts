@@ -307,6 +307,19 @@ export const projects: Project[] = [
 // ─── Пет-проекты ─────────────────────────────────────────────────────────────
 export const pets = [
   {
+    title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
+    subtitle: { ru: 'Сайт жилого комплекса', en: 'Residential complex website' } as L,
+    description: {
+      ru: '3D-квартал на three.js: при наведении на башню — свободные квартиры. Каталог из 270 квартир: фильтры, шахматка, состояние в адресе. Статические страницы квартир с SVG-планировками, избранное, ипотечный калькулятор.',
+      en: 'A three.js 3D block: hover a tower to see available flats. A catalog of 270 flats with filters, a floor grid and URL state. Static flat pages with SVG floor plans, favorites, a mortgage calculator.',
+    } as L,
+    images: ['/projects/sosny-home.webp', '/projects/sosny-chess.webp', '/projects/sosny-flat.webp'],
+    stack: ['Astro', 'TypeScript', 'Three.js', 'GSAP', 'SCSS'],
+    // TODO: ссылки на демо и репозиторий
+    demo: '',
+    repo: '',
+  },
+  {
     title: { ru: 'ОРБИТА', en: 'ORBITA' } as L,
     subtitle: { ru: 'Сайт космического агентства', en: 'Space agency website' } as L,
     description: {
