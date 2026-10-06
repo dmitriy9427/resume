@@ -81,10 +81,13 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
     title: { ru: 'Фреймворки', en: 'Frameworks' },
     items: [
       'React',
+      'Next.js (App Router)',
       'Astro',
       'React Router',
       'TanStack Router / Table / Virtual',
       'Redux Toolkit',
+      'Zustand',
+      'TanStack Query',
       'React Hook Form',
       'shadcn/ui',
     ],
@@ -99,6 +102,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
       'Lenis',
       'Swiper',
       'Canvas',
+      'MapLibre GL',
     ],
   },
   {
@@ -114,6 +118,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
 /** Бегущая строка технологий на первом экране. */
 export const marquee = [
   'React',
+  'Next.js',
   'TypeScript',
   'Astro',
   'GSAP',
@@ -344,6 +349,18 @@ export const pets = [
     stack: ['React', 'TypeScript', 'GSAP', 'WebGL', 'Vitest'],
     demo: 'https://dmitriy9427.github.io/lepestok/',
     repo: 'https://github.com/dmitriy9427/lepestok',
+  },
+  {
+    title: { ru: 'Тропа', en: 'Tropa' } as L,
+    subtitle: { ru: 'Планировщик путешествий', en: 'Trip planner' } as L,
+    description: {
+      ru: 'Места по дням: перетаскивание мышью, пальцем и с клавиатуры, карта маршрута на MapLibre — камера перелетает к выбранному дню, линия прорисовывается. Подборка популярных мест из Wikidata с фото, прогноз погоды, ссылка «поделиться» без сервера, экспорт в календарь. Статический экспорт Next.js, тесты на логику.',
+      en: 'Places by day: drag and drop with mouse, touch and keyboard, a MapLibre route map — the camera flies to the selected day and the route draws itself. Popular sights from Wikidata with photos, weather forecast, a serverless share link, calendar export. Next.js static export, logic covered by tests.',
+    } as L,
+    images: ['/projects/tropa-day.webp', '/projects/tropa-discover.webp', '/projects/tropa-dark.webp'],
+    stack: ['Next.js', 'TypeScript', 'Zustand', 'TanStack Query', 'MapLibre'],
+    demo: 'https://dmitriy9427.github.io/tropa/',
+    repo: 'https://github.com/dmitriy9427/tropa',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
