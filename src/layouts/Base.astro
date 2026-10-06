@@ -9,7 +9,7 @@ import '@fontsource-variable/jetbrains-mono'
 import '../styles/main.scss'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import { LOCALES, asLocale, localePath, pick, stripLocale, useTranslations } from '../i18n/ui'
+import { LOCALES, asLocale, localePath, pick, stripLocale, useTranslations, withBase } from '../i18n/ui'
 import { profile } from '../data/resume'
 
 interface Props {
@@ -39,11 +39,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site)
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL('/og.jpg', Astro.site)} />
+    <meta property="og:image" content={new URL(withBase('/og.jpg'), Astro.site)} />
     <meta property="og:locale" content={locale === 'ru' ? 'ru_RU' : 'en_US'} />
     <meta name="theme-color" content="#07070d" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
     {/* До отрисовки: класс .js и тема. По умолчанию — тёмная (сайт задуман тёмным). */}
     <script is:inline>
       document.documentElement.classList.add('js')

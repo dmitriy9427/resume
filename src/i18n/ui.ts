@@ -104,14 +104,21 @@ export function useTranslations(locale: string | undefined) {
 /** Текст из src/data/resume.ts на нужном языке: pick(project.title, locale). */
 export const pick = (text: { ru: string; en: string }, locale: string | undefined) => text[asLocale(locale)]
 
-/** Адрес страницы на нужном языке: localePath('en', '/') → '/en/'. */
+/** Базовый путь сайта без «/» в конце: '' локально, '/resume' на GitHub Pages. */
+export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+/** Путь от корня сайта с учётом base: withBase('/favicon.svg') → '/resume/favicon.svg'. */
+export const withBase = (path: string) => `${BASE}${path.startsWith('/') ? path : `/${path}`}`
+
+/** Адрес страницы на нужном языке: localePath('en', '/') → '/en/' (с учётом base). */
 export function localePath(locale: Locale, path = '/') {
   const clean = path.startsWith('/') ? path : `/${path}`
-  return locale === DEFAULT_LOCALE ? clean : `/${locale}${clean === '/' ? '/' : clean}`
+  return withBase(locale === DEFAULT_LOCALE ? clean : `/${locale}${clean === '/' ? '/' : clean}`)
 }
 
 /** Убрать языковой префикс: '/en/' → '/'. */
 export function stripLocale(pathname: string) {
+  if (BASE && pathname.startsWith(BASE)) pathname = pathname.slice(BASE.length) || '/'
   const [, first, ...rest] = pathname.split('/')
   return (LOCALES as readonly string[]).includes(first) && first !== DEFAULT_LOCALE ? `/${rest.join('/')}` : pathname
 }

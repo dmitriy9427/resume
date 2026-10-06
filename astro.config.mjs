@@ -22,8 +22,9 @@ const kitDir = fileURLToPath(new URL('./kit', import.meta.url))
 const root = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
-  // TODO: адрес сайта резюме (нужен для sitemap и Open Graph)
-  site: 'https://example.com',
+  // Адрес сайта (sitemap, Open Graph). На GitHub Pages сайт живёт в подпапке:
+  // site — домен, base — /resume/ (BASE_URL задаёт .github/workflows/pages.yml).
+  site: 'https://dmitriy9427.github.io',
   base: process.env.BASE_URL ?? '/',
   i18n: {
     locales: ['ru', 'en'],
