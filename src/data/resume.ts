@@ -105,6 +105,10 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
     title: { ru: 'Сборка и качество', en: 'Tooling & quality' },
     items: ['Vite', 'Webpack', 'Gulp', 'Vitest', 'Jest', 'Playwright', 'Storybook', 'ESLint / Stylelint', 'Git'],
   },
+  {
+    title: { ru: 'AI', en: 'AI' },
+    items: ['Интерфейсы AI-ассистентов', 'Чаты со стримингом ответов', 'RAG', 'AI-инструменты в разработке'],
+  },
 ]
 
 /** Бегущая строка технологий на первом экране. */
