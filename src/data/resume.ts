@@ -187,7 +187,7 @@ export const projects: Project[] = [
     category: 'edu',
     year: '2026',
     stack: ['Astro', 'React', 'TypeScript', 'Storybook', 'GSAP', 'Vitest'],
-    href: 'https://ugrasu.ru',
+    href: '',
     featured: true,
   },
   {
@@ -225,17 +225,6 @@ export const projects: Project[] = [
     href: 'https://medmol.volgmed.ru',
   },
   {
-    title: { ru: 'Сайт для абитуриентов ТюмГМУ', en: 'Tyumen Medical University admissions site' },
-    description: {
-      ru: 'Конструктор траекторий обучения, слайдер интервью, чат-бот, компоненты на React.',
-      en: 'A study path builder, interviews slider, chatbot, React components.',
-    },
-    category: 'med',
-    year: '2025',
-    stack: ['React', 'JavaScript', 'SCSS', 'React Hook Form', 'Swiper'],
-    href: 'https://www.tyumsmu.ru',
-  },
-  {
     title: { ru: 'Сайт для абитуриентов технического вуза', en: 'Admissions website of a technical university' },
     description: {
       ru: 'Фильтры направлений, анимации текста, WebGL-эффекты на главной.',
@@ -247,7 +236,7 @@ export const projects: Project[] = [
     href: '',
   },
   {
-    title: { ru: 'Сайт медицинского университета', en: 'Medical university website' },
+    title: { ru: 'Сайт Тюменского медицинского университета', en: 'Tyumen Medical University website' },
     description: {
       ru: 'Формы с проверкой и оплатой обучения, расписание, разделы для абитуриентов.',
       en: 'Validated forms and tuition payment, schedule, admissions sections.',
@@ -255,7 +244,7 @@ export const projects: Project[] = [
     category: 'med',
     year: '2025',
     stack: ['JavaScript', 'SCSS', 'GSAP', 'Three.js'],
-    href: '',
+    href: 'https://www.tyumsmu.ru',
   },
   {
     title: { ru: 'Исторический спецпроект университета', en: 'University history special project' },
@@ -292,7 +281,7 @@ export const projects: Project[] = [
     href: 'https://pskgu.ru',
   },
   {
-    title: { ru: 'Сайт аграрного университета', en: 'Agricultural university website' },
+    title: { ru: 'Сайт Бурятской ГСХА', en: 'Buryat State Agricultural Academy website' },
     description: {
       ru: 'Поиск по сайту, баннеры, статьи, уведомление о cookies.',
       en: 'Site search, banners, articles, cookie notice.',
