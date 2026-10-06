@@ -1,7 +1,34 @@
-# Резюме — сайт-визитка
+<div align="center">
 
-Astro + TypeScript + [frontend-kit](../frontend-kit) (модули, SCSS, GSAP, WebGL).
-Два языка: русский — `/`, английский — `/en/`.
+<a href="https://dmitriy9427.github.io/resume/"><img src="docs/screenshots/resume-hero.webp" alt="Первый экран" width="100%"></a>
+
+# 👋 Сайт-резюме
+
+**Дмитрий Рябов, frontend-разработчик — Astro, TypeScript, WebGL, два языка**
+
+### [Открыть сайт →](https://dmitriy9427.github.io/resume/)
+
+![Astro](https://img.shields.io/badge/Astro-bc52ee?style=flat-square&logo=astro&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white) ![GSAP](https://img.shields.io/badge/GSAP-0ae448?style=flat-square&logo=greensock&logoColor=black) ![WebGL](https://img.shields.io/badge/WebGL-990000?style=flat-square&logo=webgl&logoColor=white) ![тесты 185](https://img.shields.io/badge/%D1%82%D0%B5%D1%81%D1%82%D1%8B_185-2ea44f?style=flat-square) [![Деплой](https://github.com/dmitriy9427/resume/actions/workflows/pages.yml/badge.svg)](https://github.com/dmitriy9427/resume/actions/workflows/pages.yml)
+
+</div>
+
+| Проекты | Пет-проекты |
+| --- | --- |
+| <img src="docs/screenshots/resume-projects.webp" alt="Проекты"> | <img src="docs/screenshots/resume-pets.webp" alt="Пет-проекты"> |
+
+## Коротко
+
+| | |
+| :---: | --- |
+| 🌌 | **WebGL-сияние** — шейдер на первом экране тянется за курсором |
+| 🗂 | **Проекты** — фильтр по категориям с Flip-анимацией, превью сайтов |
+| 🌐 | **Два языка** — ru и en, hreflang, sitemap, Open Graph |
+| 🌗 | **Тёмная и светлая темы** — без вспышки при загрузке |
+| ✅ | **Качество** — 185 тестов, строгий TypeScript, доступность |
+
+Автор — [Дмитрий Рябов](https://dmitriy9427.github.io/resume/), frontend-разработчик.
+
+---
 
 ```bash
 npm install
