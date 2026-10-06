@@ -98,7 +98,9 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
       'GSAP + ScrollTrigger',
       'SplitText, Flip, Draggable',
       'Three.js',
+      'React Three Fiber',
       'GLSL-шейдеры',
+      'Web Audio API',
       'Lenis',
       'Swiper',
       'Canvas',
@@ -361,6 +363,18 @@ export const pets = [
     stack: ['Next.js', 'TypeScript', 'Zustand', 'TanStack Query', 'MapLibre'],
     demo: 'https://dmitriy9427.github.io/tropa/',
     repo: 'https://github.com/dmitriy9427/tropa',
+  },
+  {
+    title: { ru: 'Резонанс', en: 'Resonance' } as L,
+    subtitle: { ru: 'Музыкальный визуализатор', en: 'Music visualizer' } as L,
+    description: {
+      ru: 'Три 3D-сцены на шейдерах слушают музыку: сфера на шуме, галактика из 60 000 частиц, синтвейв-ландшафт из истории спектра. Анализ звука — полосы частот и детектор долей, демо-трек синтезируется в браузере на Web Audio, свой файл или микрофон. 60 fps, обучающая документация.',
+      en: 'Three shader-driven 3D scenes that listen to music: a noise sphere, a 60,000-particle galaxy, a synthwave landscape built from spectrum history. Audio analysis with frequency bands and beat detection, a demo track synthesized in the browser with Web Audio, your own file or microphone. 60 fps, tutorial-style docs.',
+    } as L,
+    images: ['/projects/resonance-terrain.webp', '/projects/resonance-galaxy.webp', '/projects/resonance-sphere.webp'],
+    stack: ['React Three Fiber', 'TypeScript', 'GLSL', 'Web Audio', 'Vitest'],
+    demo: 'https://dmitriy9427.github.io/resonance/',
+    repo: 'https://github.com/dmitriy9427/resonance',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
