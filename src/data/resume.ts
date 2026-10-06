@@ -224,6 +224,7 @@ export const projects: Project[] = [
     stack: ['Pug', 'SCSS', 'JavaScript', 'React', 'GSAP'],
     href: 'https://www.tnimc.ru',
     image: '/projects/work-tnimc.webp',
+    featured: true,
   },
   {
     title: { ru: 'Молодёжный портал ВолгГМУ', en: 'Volgograd Medical University youth portal' },
@@ -236,6 +237,7 @@ export const projects: Project[] = [
     stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP', 'Barba.js', 'Lenis'],
     href: 'https://medmol.volgmed.ru',
     image: '/projects/work-medmol.webp',
+    featured: true,
   },
   {
     title: { ru: 'Сайт для абитуриентов технического вуза', en: 'Admissions website of a technical university' },

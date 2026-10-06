@@ -3,12 +3,16 @@
  * Проекты в продакшне: фильтр по категориям (Flip-анимация, фильтр в адресе)
  * и карточки. Данные — categories и projects в src/data/resume.ts.
  * Ключевые проекты (featured) — карточки на две колонки.
+ * Показываются только проекты со ссылкой (href).
  */
 import { asLocale, pick, useTranslations, withBase } from '../i18n/ui'
-import { categories, projects } from '../data/resume'
+import { categories, projects as allProjects } from '../data/resume'
 
 const locale = asLocale(Astro.currentLocale)
 const t = useTranslations(locale)
+// Показываем только проекты со ссылкой на живой сайт. Закрытые (NDA, ещё не
+// в проде) остаются в данных: появится ссылка — карточка покажется сама.
+const projects = allProjects.filter((p) => p.href)
 const used = Object.keys(categories).filter((key) => projects.some((p) => p.category === key))
 ---
 
