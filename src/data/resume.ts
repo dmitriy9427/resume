@@ -82,6 +82,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
     items: [
       'React',
       'Next.js (App Router)',
+      'Vue 3, Nuxt, Pinia',
       'Astro',
       'React Router',
       'TanStack Router / Table / Virtual',
@@ -375,6 +376,18 @@ export const pets = [
     stack: ['React Three Fiber', 'TypeScript', 'GLSL', 'Web Audio', 'Vitest'],
     demo: 'https://dmitriy9427.github.io/resonance/',
     repo: 'https://github.com/dmitriy9427/resonance',
+  },
+  {
+    title: { ru: 'Летучка', en: 'Letuchka' } as L,
+    subtitle: { ru: 'Онлайн-ретро для команды', en: 'Team retrospective board' } as L,
+    description: {
+      ru: 'Комната по ссылке без регистрации: карточки, голосование, таймер, курсоры коллег и реакции в реальном времени. Три этапа: пишем вслепую, голосуем, обсуждаем. Бэкенд — Supabase: анонимный вход, Postgres, права на уровне строк (RLS), realtime; демо-режим между вкладками без сервера.',
+      en: 'A room by link, no sign-up: cards, voting, a timer, teammates’ cursors and reactions in real time. Three phases: write blind, vote, discuss. Supabase backend: anonymous auth, Postgres, row level security, realtime; a serverless demo mode across browser tabs.',
+    } as L,
+    images: ['/projects/letuchka-discuss.webp', '/projects/letuchka-write.webp', '/projects/letuchka-vote.webp'],
+    stack: ['Nuxt', 'Vue 3', 'Pinia', 'Supabase', 'TypeScript'],
+    demo: 'https://dmitriy9427.github.io/letuchka/',
+    repo: 'https://github.com/dmitriy9427/letuchka',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
