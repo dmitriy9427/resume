@@ -320,9 +320,9 @@ export const pets = [
       '/projects/lepestok-preloader.webp',
     ],
     stack: ['React', 'TypeScript', 'GSAP', 'WebGL', 'Vitest'],
-    // TODO: ссылки на демо и репозиторий
+    // TODO: ссылка на демо
     demo: '',
-    repo: '',
+    repo: 'https://github.com/dmitriy9427/lepestok',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
@@ -333,9 +333,9 @@ export const pets = [
     } as L,
     images: ['/projects/sosny-home.webp', '/projects/sosny-chess.webp', '/projects/sosny-flat.webp'],
     stack: ['Astro', 'TypeScript', 'Three.js', 'GSAP', 'SCSS'],
-    // TODO: ссылки на демо и репозиторий
+    // TODO: ссылка на демо
     demo: '',
-    repo: '',
+    repo: 'https://github.com/dmitriy9427/zhk-sosny',
   },
   {
     title: { ru: 'ОРБИТА', en: 'ORBITA' } as L,
@@ -346,9 +346,9 @@ export const pets = [
     } as L,
     images: ['/projects/orbita-home.webp', '/projects/orbita-sliders.webp', '/projects/orbita-destinations.webp'],
     stack: ['GSAP', 'Three.js', 'GLSL', 'Vite', 'Vitest'],
-    // TODO: ссылки на демо и репозиторий
+    // TODO: ссылка на демо
     demo: '',
-    repo: '',
+    repo: 'https://github.com/dmitriy9427/space-agency',
   },
   {
     title: { ru: 'frontend-kit', en: 'frontend-kit' } as L,
@@ -360,6 +360,6 @@ export const pets = [
     images: ['/projects/kit-drum.webp', '/projects/kit-form.webp'],
     stack: ['TypeScript', 'Astro', 'React', 'SCSS', 'GSAP'],
     demo: '',
-    repo: '',
+    repo: 'https://github.com/dmitriy9427/frontend-kit',
   },
 ]
