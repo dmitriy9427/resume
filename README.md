@@ -93,6 +93,12 @@ npm run build      # готовый сайт в dist/
 
 ## Как устроено
 
+Учебные главы «что, как и почему» — в [docs/](docs/README.md):
+[архитектура](docs/01-architecture.md) ·
+[эффекты](docs/02-effects.md) ·
+[деплой](docs/03-deploy.md) ·
+[шпаргалка к собеседованию](docs/interview.md).
+
 ```
 src/
 ├── data/resume.ts          ← содержимое резюме (меняется здесь)
