@@ -1,0 +1,191 @@
+// ВРЕМЕННО: вариант B — «Голограмма / Y2K-хром».
+// Ночь: переливы на тёмном, хромированные рамки. День: перламутр, пастель.
+@use 'base';
+
+@property --holo-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.lab--holo {
+  &[data-theme='dark'] {
+    --bg: #08080d;
+    --text: #eef0ff;
+    --muted: #9a9cb8;
+    --card: #11111a;
+    --holo: linear-gradient(
+      100deg,
+      #9ff 0%,
+      #c8a2ff 18%,
+      #ff9ad5 34%,
+      #ffe58f 50%,
+      #9fffc8 66%,
+      #8fd3ff 82%,
+      #c8a2ff 100%
+    );
+    --ring: conic-gradient(from var(--holo-angle), #9ff, #c8a2ff, #ff9ad5, #ffe58f, #9fffc8, #9ff);
+    --sheen: rgb(255 255 255 / 18%);
+  }
+
+  &[data-theme='light'] {
+    --bg: #f5f2ee;
+    --text: #1f1c2c;
+    --muted: #6f6a7c;
+    --card: #fbfaf8;
+    --holo: linear-gradient(
+      100deg,
+      #7fd6e8 0%,
+      #b49cf0 18%,
+      #f39ac9 34%,
+      #f3c86b 50%,
+      #7fdcae 66%,
+      #7cb8f0 82%,
+      #b49cf0 100%
+    );
+    --ring: conic-gradient(from var(--holo-angle), #bdeef7, #d9cbff, #ffd0e8, #ffeab8, #c8f5dc, #bdeef7);
+    --sheen: rgb(255 255 255 / 70%);
+    --switch-bg: rgb(255 255 255 / 70%);
+    --switch-text: #1f1c2c;
+    --switch-border: rgb(31 28 44 / 10%);
+    --switch-hover: rgb(31 28 44 / 6%);
+    --switch-active: #1f1c2c;
+    --switch-active-text: #fff;
+  }
+
+  animation: holo-spin 8s linear infinite;
+}
+
+@keyframes holo-spin {
+  to {
+    --holo-angle: 360deg;
+  }
+}
+
+// ─── Первый экран: переливающиеся «капли» света ────────────────────────────
+.lab--holo .lab-hero__scene {
+  &::before,
+  &::after {
+    position: absolute;
+    width: 60vmax;
+    aspect-ratio: 1;
+    content: '';
+    background: var(--ring);
+    border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+    filter: blur(80px);
+    opacity: 0.45;
+    animation: holo-blob 18s ease-in-out infinite alternate;
+  }
+
+  &::before {
+    top: -20vmax;
+    right: -15vmax;
+  }
+
+  &::after {
+    bottom: -30vmax;
+    left: -20vmax;
+    opacity: 0.3;
+    animation-delay: -9s;
+  }
+}
+
+[data-theme='light'].lab--holo .lab-hero__scene::before,
+[data-theme='light'].lab--holo .lab-hero__scene::after {
+  opacity: 0.75;
+}
+
+@keyframes holo-blob {
+  to {
+    border-radius: 63% 37% 38% 62% / 55% 61% 39% 45%;
+    transform: rotate(120deg) scale(1.15);
+  }
+}
+
+// ─── Голографический текст ─────────────────────────────────────────────────
+.lab--holo {
+  .lab-title,
+  .lab-h2,
+  .lab-mail,
+  .lab-stat strong {
+    background: var(--holo) 0 0 / 200% 100%;
+    background-clip: text;
+    color: transparent;
+    animation: holo-text 6s linear infinite;
+  }
+
+  .lab-title {
+    filter: drop-shadow(0 10px 30px rgb(200 162 255 / 30%));
+  }
+}
+
+[data-theme='light'].lab--holo .lab-title {
+  filter: drop-shadow(0 2px 0 #fff) drop-shadow(0 14px 24px rgb(180 156 240 / 35%));
+}
+
+@keyframes holo-text {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+// ─── Карточки: перламутровая рамка + блик за мышью ──────────────────────────
+.lab--holo {
+  .lab-card,
+  .lab-btn,
+  .lab-chip {
+    background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      var(--ring) border-box;
+    border: 1.5px solid transparent;
+  }
+
+  .lab-chip {
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      var(--ring) border-box;
+    border-width: 1px;
+  }
+
+  .lab-btn--primary {
+    color: #14121d;
+    background: var(--ring);
+    border: 0;
+  }
+
+  .lab-card {
+    position: relative;
+
+    // Блик-«голограмма» под мышью (--mx/--my ставит holo.ts).
+    &::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: '';
+      background:
+        radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--sheen), transparent 60%),
+        linear-gradient(115deg, transparent 30%, rgb(255 154 213 / 12%) 45%, rgb(159 255 255 / 12%) 55%, transparent 70%);
+      border-radius: inherit;
+      opacity: 0;
+      mix-blend-mode: overlay;
+      transition: opacity 0.4s;
+    }
+
+    &:hover {
+      box-shadow: 0 30px 60px -30px rgb(200 162 255 / 60%);
+      transform: translateY(-6px) rotateX(2deg);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+[data-theme='light'].lab--holo .lab-card {
+  box-shadow: 0 20px 40px -28px rgb(31 28 44 / 25%);
+
+  &::after {
+    mix-blend-mode: soft-light;
+  }
+}

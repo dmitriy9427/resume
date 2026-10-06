@@ -1,0 +1,95 @@
+---
+/**
+ * ВРЕМЕННО: общее содержимое прототипов (данные — те же, что у резюме).
+ * Разметка одна, облик задают стили варианта (src/styles/lab/*).
+ * data-text у заголовков — для эффектов на псевдоэлементах (ризограф).
+ */
+import { contacts, pets, profile, skills, stats } from '../../data/resume'
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const name = `${profile.name.ru} ${profile.surname.ru}`
+---
+
+<main class="lab-main">
+  <section class="lab-hero">
+    <div class="lab-hero__scene" aria-hidden="true"></div>
+    <div class="lab-wrap lab-hero__inner">
+      <p class="lab-eyebrow">{profile.role.ru} · {profile.location.ru}</p>
+      <h1 class="lab-title" data-text={name}>{name}</h1>
+      <p class="lab-lead">{profile.pitch.ru}</p>
+      <div class="lab-actions">
+        <a class="lab-btn lab-btn--primary" href="#lab-projects">Проекты</a>
+        <a class="lab-btn" href="#lab-contact">Связаться</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lab-section lab-wrap">
+    <h2 class="lab-h2" data-text="Обо мне">Обо мне</h2>
+    <div class="lab-about">
+      <div class="lab-about__text">
+        {profile.about.map((p) => <p>{p.ru}</p>)}
+      </div>
+      <ul class="lab-stats">
+        {
+          stats.map((s) => (
+            <li class="lab-card lab-stat">
+              <strong>
+                {s.value}
+                {s.suffix}
+              </strong>
+              <span>{s.label.ru}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="lab-section lab-wrap" id="lab-projects">
+    <h2 class="lab-h2" data-text="Пет-проекты">Пет-проекты</h2>
+    <ul class="lab-projects">
+      {
+        pets.map((p) => (
+          <li class="lab-card lab-project" data-cursor-hover>
+            <div class="lab-project__shot">
+              <img src={`${base}${p.images[0]}`} alt="" loading="lazy" width="1440" height="804" />
+            </div>
+            <div class="lab-project__body">
+              <h3 class="lab-h3">{p.title.ru}</h3>
+              <p class="lab-project__sub">{p.subtitle.ru}</p>
+              <ul class="lab-chips">
+                {p.stack.map((s) => (
+                  <li class="lab-chip">{s}</li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="lab-section lab-wrap">
+    <h2 class="lab-h2" data-text="Навыки">Навыки</h2>
+    <div class="lab-skills">
+      {
+        skills.map((g) => (
+          <div class="lab-card lab-skill">
+            <h3 class="lab-h3">{g.title.ru}</h3>
+            <ul class="lab-chips">
+              {g.items.map((i) => (
+                <li class="lab-chip">{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="lab-section lab-wrap lab-contact" id="lab-contact">
+    <h2 class="lab-h2" data-text="Давайте работать">Давайте работать</h2>
+    <a class="lab-mail" href={`mailto:${contacts.email}`} data-cursor-hover>{contacts.email}</a>
+  </section>
+</main>

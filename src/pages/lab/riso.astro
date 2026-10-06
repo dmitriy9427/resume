@@ -1,0 +1,21 @@
+---
+// ВРЕМЕННО: прототип C — «Вывеска и ризограф». См. src/layouts/Lab.astro.
+import Lab from '../../layouts/Lab.astro'
+import LabContent from '../../components/lab/LabContent.astro'
+import '../../styles/lab/riso.scss'
+---
+
+<Lab variant="riso" title="C · Вывеска и ризограф">
+  <LabContent />
+  {/* «Липкий» фильтр для курсора-краски: размытие + порог альфы сливают капли. */}
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <filter id="lab-goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9"></feColorMatrix>
+    </filter>
+  </svg>
+</Lab>
+
+<script>
+  import '../../lab/riso'
+</script>

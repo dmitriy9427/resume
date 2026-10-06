@@ -1,0 +1,351 @@
+// ВРЕМЕННО: общая раскладка прототипов. Облик — переменные, которые задаёт
+// вариант (neon.scss / holo.scss / riso.scss) для [data-theme='dark'|'light'].
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope Variable', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  transition:
+    background-color 0.6s,
+    color 0.6s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+// На мыши системный курсор прячем — его заменяет курсор варианта.
+@media (hover: hover) and (pointer: fine) {
+  .lab.has-cursor,
+  .lab.has-cursor * {
+    cursor: none !important;
+  }
+}
+
+.lab-wrap {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+// ─── Переключатель вариантов ───────────────────────────────────────────────
+.lab-switcher {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 5px;
+  font: 600 13px/1 'Manrope Variable', system-ui, sans-serif;
+  color: var(--switch-text, #fff);
+  background: var(--switch-bg, rgb(20 20 30 / 70%));
+  border: 1px solid var(--switch-border, rgb(255 255 255 / 15%));
+  border-radius: 999px;
+  backdrop-filter: blur(14px);
+  translate: -50% 0;
+}
+
+.lab-switcher__tag {
+  padding: 0 10px;
+  opacity: 0.6;
+
+  @media (width < 640px) {
+    display: none;
+  }
+}
+
+.lab-switcher__link,
+.lab-switcher__theme {
+  padding: 9px 14px;
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background: var(--switch-hover, rgb(255 255 255 / 12%));
+  }
+
+  &[aria-current='page'] {
+    color: var(--switch-active-text, #000);
+    background: var(--switch-active, #fff);
+  }
+}
+
+.lab-switcher__theme {
+  cursor: pointer;
+  border: 1px solid var(--switch-border, rgb(255 255 255 / 15%));
+}
+
+[data-theme='dark'] .lab-switcher__theme-dark,
+[data-theme='light'] .lab-switcher__theme-light {
+  display: none;
+}
+
+// ─── Раскладка ─────────────────────────────────────────────────────────────
+.lab-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.lab-hero__scene {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.lab-hero__inner {
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+  padding-block: 120px 80px;
+}
+
+.lab-eyebrow {
+  margin: 0;
+  font: 500 13px/1.4 'JetBrains Mono Variable', monospace;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.lab-title {
+  position: relative;
+  margin: 0;
+  font-family: 'Unbounded Variable', sans-serif;
+  font-size: clamp(44px, 9vw, 132px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.lab-lead {
+  max-width: 52ch;
+  margin: 0;
+  font-size: clamp(17px, 1.6vw, 21px);
+  color: var(--muted);
+}
+
+.lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lab-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 26px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.lab-section {
+  padding-block: clamp(64px, 10vw, 140px) 0;
+
+  &:last-child {
+    padding-bottom: clamp(64px, 10vw, 140px);
+  }
+}
+
+.lab-h2 {
+  position: relative;
+  margin: 0 0 40px;
+  font-family: 'Unbounded Variable', sans-serif;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.lab-h3 {
+  margin: 0;
+  font-family: 'Unbounded Variable', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.lab-about {
+  display: grid;
+  gap: 32px;
+
+  @media (width >= 900px) {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.lab-about__text p {
+  margin: 0 0 16px;
+  font-size: 19px;
+}
+
+.lab-stats {
+  display: grid;
+  gap: 12px;
+}
+
+.lab-stat {
+  display: grid;
+  gap: 4px;
+  padding: 20px 24px;
+
+  strong {
+    font-family: 'Unbounded Variable', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  span {
+    color: var(--muted);
+  }
+}
+
+.lab-card {
+  border-radius: 20px;
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s,
+    border-color 0.4s,
+    background-color 0.6s;
+}
+
+.lab-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
+  gap: 24px;
+}
+
+.lab-project {
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+}
+
+.lab-project__shot {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .lab-project:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.lab-project__body {
+  display: grid;
+  gap: 10px;
+  padding: 22px 24px 26px;
+}
+
+.lab-project__sub {
+  margin: 0;
+  color: var(--muted);
+}
+
+.lab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lab-chip {
+  padding: 5px 12px;
+  font: 500 13px/1.4 'JetBrains Mono Variable', monospace;
+  border-radius: 999px;
+}
+
+.lab-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+}
+
+.lab-skill {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  padding: 26px;
+}
+
+.lab-contact {
+  text-align: center;
+
+  .lab-h2 {
+    margin-inline: auto;
+  }
+}
+
+.lab-mail {
+  display: inline-block;
+  font-family: 'Unbounded Variable', sans-serif;
+  font-size: clamp(24px, 5vw, 64px);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+// Холст курсора (3D/2D) — поверх всего, мышь не перехватывает.
+.lab-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
