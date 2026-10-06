@@ -193,8 +193,8 @@ export const projects: Project[] = [
   {
     title: { ru: 'Панель управления AI-ассистентом', en: 'AI assistant admin panel' },
     description: {
-      ru: 'Интерфейс RAG-ассистента: чаты со стримингом ответов, карта сайта, статистика, виртуализация больших списков.',
-      en: 'RAG assistant interface: streaming chats, site map, statistics, large list virtualization.',
+      ru: 'Внутренний сервис компании: интерфейс RAG-ассистента, чаты со стримингом ответов.',
+      en: 'Internal company tool: a RAG assistant UI with streaming chat responses.',
     },
     category: 'app',
     year: '2026',
@@ -212,6 +212,28 @@ export const projects: Project[] = [
     year: '2026',
     stack: ['Pug', 'SCSS', 'JavaScript', 'React', 'GSAP'],
     href: 'https://www.tnimc.ru',
+  },
+  {
+    title: { ru: 'Молодёжный портал ВолгГМУ', en: 'Volgograd Medical University youth portal' },
+    description: {
+      ru: '«Искусство быть врачом»: плавные переходы между страницами, видео-слайдеры, календарь событий, формы.',
+      en: '“The art of being a doctor”: smooth page transitions, video sliders, an events calendar, forms.',
+    },
+    category: 'med',
+    year: '2026',
+    stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP', 'Barba.js', 'Lenis'],
+    href: 'https://medmol.volgmed.ru',
+  },
+  {
+    title: { ru: 'Сайт для абитуриентов ТюмГМУ', en: 'Tyumen Medical University admissions site' },
+    description: {
+      ru: 'Конструктор траекторий обучения, слайдер интервью, чат-бот, компоненты на React.',
+      en: 'A study path builder, interviews slider, chatbot, React components.',
+    },
+    category: 'med',
+    year: '2025',
+    stack: ['React', 'JavaScript', 'SCSS', 'React Hook Form', 'Swiper'],
+    href: 'https://www.tyumsmu.ru',
   },
   {
     title: { ru: 'Сайт для абитуриентов технического вуза', en: 'Admissions website of a technical university' },
@@ -281,26 +303,15 @@ export const projects: Project[] = [
     href: 'https://bgsha.ru',
   },
   {
-    title: { ru: 'Сайт университета', en: 'University website' },
+    title: { ru: 'Сайт ПГМУ', en: 'Perm State Medical University website' },
     description: {
-      ru: 'Разводящие страницы, слайдеры, структура подразделений.',
-      en: 'Landing pages, sliders, departments structure.',
+      ru: 'Разводящие страницы, структура подразделений, оплата обучения, карта, адаптивные таблицы.',
+      en: 'Landing pages, departments structure, tuition payment, a map, responsive tables.',
     },
-    category: 'edu',
+    category: 'med',
     year: '2025',
-    stack: ['Pug', 'SCSS', 'JavaScript', 'Swiper'],
-    href: '',
-  },
-  {
-    title: { ru: 'Личный кабинет-дашборд', en: 'User dashboard' },
-    description: {
-      ru: 'Авторизация, профиль, пользователи, уведомления, графики.',
-      en: 'Authorization, profile, users, notifications, charts.',
-    },
-    category: 'app',
-    year: '2025',
-    stack: ['JavaScript', 'Chart.js', 'SCSS', 'htmx'],
-    href: '',
+    stack: ['Pug', 'SCSS', 'JavaScript', 'Vue', 'htmx', 'Swiper'],
+    href: 'https://psmu.ru',
   },
 ]
 
