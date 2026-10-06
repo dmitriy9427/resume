@@ -307,6 +307,19 @@ export const projects: Project[] = [
 // ─── Пет-проекты ─────────────────────────────────────────────────────────────
 export const pets = [
   {
+    title: { ru: 'Лепесток', en: 'Lepestok' } as L,
+    subtitle: { ru: 'Цветочный магазин', en: 'Flower shop' } as L,
+    description: {
+      ru: 'Первый экран — видео сквозь буквы, раскрывается прокруткой. Шейдерные переходы между страницами «распускающийся цветок». Конструктор букета с ценой и бюджетом, каталог с фильтрами в адресе и Flip, 3D-галерея, подписка, оформление заказа. Тёмная тема, плавающие цветы на canvas, 220+ тестов.',
+      en: 'Video-through-letters hero revealed on scroll. A “blooming flower” shader transition between pages. Bouquet builder with live price and budget, a catalog with URL filters and Flip, a 3D gallery, subscription, checkout. Dark theme, floating canvas flowers, 220+ tests.',
+    } as L,
+    images: ['/projects/lepestok-home.webp', '/projects/lepestok-hero.webp', '/projects/lepestok-catalog.webp'],
+    stack: ['React', 'TypeScript', 'GSAP', 'WebGL', 'Vitest'],
+    // TODO: ссылки на демо и репозиторий
+    demo: '',
+    repo: '',
+  },
+  {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
     subtitle: { ru: 'Сайт жилого комплекса', en: 'Residential complex website' } as L,
     description: {
