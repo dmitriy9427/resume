@@ -34,8 +34,6 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: { defaultLocale: 'ru', locales: { ru: 'ru-RU', en: 'en-US' } },
-      // ВРЕМЕННО: прототипы дизайна (/lab/*) — не в карту сайта.
-      filter: (page) => !page.includes('/lab/'),
     }),
   ],
   server: { port: 4321 },
