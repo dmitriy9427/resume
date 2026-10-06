@@ -174,6 +174,10 @@ export type Project = {
   href: string
   /** Отметить как ключевой — карточка крупнее. */
   featured?: boolean
+  /** Превью — скриншот сайта в public/projects (960×600, webp). */
+  image?: string
+  /** Без скриншота (NDA, ещё не в проде) — крупная подпись на обложке. */
+  cover?: { text: string; note: L }
 }
 
 // TODO: проверьте годы и ссылки (там, где href пустой, — заглушка «по запросу»)
@@ -189,6 +193,7 @@ export const projects: Project[] = [
     stack: ['Astro', 'React', 'TypeScript', 'Storybook', 'GSAP', 'Vitest'],
     href: '',
     featured: true,
+    cover: { text: 'ЮГУ', note: { ru: 'Скоро в проде', en: 'Coming soon' } },
   },
   {
     title: { ru: 'Панель управления AI-ассистентом', en: 'AI assistant admin panel' },
@@ -201,6 +206,7 @@ export const projects: Project[] = [
     stack: ['React', 'TypeScript', 'TanStack', 'Redux Toolkit', 'shadcn/ui', 'Tailwind'],
     href: '',
     featured: true,
+    cover: { text: 'RAG', note: { ru: 'Под NDA', en: 'Under NDA' } },
   },
   {
     title: { ru: 'Сайт Томского НИМЦ', en: 'Tomsk National Research Medical Center' },
@@ -212,6 +218,7 @@ export const projects: Project[] = [
     year: '2026',
     stack: ['Pug', 'SCSS', 'JavaScript', 'React', 'GSAP'],
     href: 'https://www.tnimc.ru',
+    image: '/projects/work-tnimc.webp',
   },
   {
     title: { ru: 'Молодёжный портал ВолгГМУ', en: 'Volgograd Medical University youth portal' },
@@ -223,6 +230,7 @@ export const projects: Project[] = [
     year: '2026',
     stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP', 'Barba.js', 'Lenis'],
     href: 'https://medmol.volgmed.ru',
+    image: '/projects/work-medmol.webp',
   },
   {
     title: { ru: 'Сайт для абитуриентов технического вуза', en: 'Admissions website of a technical university' },
@@ -234,6 +242,7 @@ export const projects: Project[] = [
     year: '2026',
     stack: ['JavaScript', 'GSAP', 'Three.js', 'GLSL', 'htmx'],
     href: '',
+    cover: { text: 'Абитуриенту', note: { ru: 'Скоро в проде', en: 'Coming soon' } },
   },
   {
     title: { ru: 'Сайт Тюменского медицинского университета', en: 'Tyumen Medical University website' },
@@ -245,6 +254,7 @@ export const projects: Project[] = [
     year: '2025',
     stack: ['JavaScript', 'SCSS', 'GSAP', 'Three.js'],
     href: 'https://www.tyumsmu.ru',
+    image: '/projects/work-tyumsmu.webp',
   },
   {
     title: { ru: 'Исторический спецпроект университета', en: 'University history special project' },
@@ -257,6 +267,7 @@ export const projects: Project[] = [
     stack: ['Three.js', 'GLSL', 'GSAP', 'Swiper'],
     href: '',
     featured: true,
+    cover: { text: 'История', note: { ru: 'Скоро в проде', en: 'Coming soon' } },
   },
   {
     title: { ru: 'Сайт МИЭТ', en: 'MIET university website' },
@@ -268,6 +279,7 @@ export const projects: Project[] = [
     year: '2025',
     stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP'],
     href: 'https://miet.ru',
+    image: '/projects/work-miet.webp',
   },
   {
     title: { ru: 'Сайт ПсковГУ', en: 'Pskov State University website' },
@@ -279,6 +291,7 @@ export const projects: Project[] = [
     year: '2024',
     stack: ['JavaScript', 'React', 'SCSS', 'Swiper'],
     href: 'https://pskgu.ru',
+    image: '/projects/work-pskgu.webp',
   },
   {
     title: { ru: 'Сайт Бурятской ГСХА', en: 'Buryat State Agricultural Academy website' },
@@ -290,6 +303,7 @@ export const projects: Project[] = [
     year: '2025',
     stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP'],
     href: 'https://bgsha.ru',
+    image: '/projects/work-bgsha.webp',
   },
   {
     title: { ru: 'Сайт ПГМУ', en: 'Perm State Medical University website' },
@@ -301,6 +315,7 @@ export const projects: Project[] = [
     year: '2025',
     stack: ['Pug', 'SCSS', 'JavaScript', 'Vue', 'htmx', 'Swiper'],
     href: 'https://psmu.ru',
+    image: '/projects/work-psmu.webp',
   },
 ]
 

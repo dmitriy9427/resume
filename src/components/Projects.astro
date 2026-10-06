@@ -4,7 +4,7 @@
  * и карточки. Данные — categories и projects в src/data/resume.ts.
  * Ключевые проекты (featured) — карточки на две колонки.
  */
-import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { asLocale, pick, useTranslations, withBase } from '../i18n/ui'
 import { categories, projects } from '../data/resume'
 
 const locale = asLocale(Astro.currentLocale)
@@ -36,6 +36,23 @@ const used = Object.keys(categories).filter((key) => projects.some((p) => p.cate
             data-flip-item
             data-category={project.category}
           >
+            {project.image ? (
+              <div class="project__media">
+                <img
+                  src={withBase(project.image)}
+                  alt={pick(project.title, locale)}
+                  width="960"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ) : project.cover ? (
+              <div class="project__media project__cover" data-category={project.category} aria-hidden="true">
+                <span class="project__cover-text">{project.cover.text}</span>
+                <span class="project__cover-note">{pick(project.cover.note, locale)}</span>
+              </div>
+            ) : null}
             <div class="project__top">
               <span class="project__category">{pick(categories[project.category], locale)}</span>
               <span class="project__year">{project.year}</span>
