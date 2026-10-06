@@ -30,8 +30,8 @@ export const profile = {
   /** Абзацы блока «Обо мне». */
   about: [
     {
-      ru: 'Frontend-разработчик в веб-студии Paraweb. Делаю сайты университетов, медицинских центров и спецпроекты: от адаптивной вёрстки и UI-китов до анимаций на GSAP и сцен на Three.js.',
-      en: 'Frontend developer at the Paraweb web studio. I build websites for universities, medical centers and special projects: from responsive markup and UI kits to GSAP animations and Three.js scenes.',
+      ru: 'Frontend-разработчик. Делаю сайты университетов, медицинских центров и спецпроекты: от адаптивной вёрстки и UI-китов до анимаций на GSAP и сцен на Three.js.',
+      en: 'Frontend developer. I build websites for universities, medical centers and special projects: from responsive markup and UI kits to GSAP animations and Three.js scenes.',
     },
     {
       ru: 'Люблю, когда интерфейс не только красивый, но и надёжный: доступность, производительность, тесты и документация — часть работы, а не «если останется время».',
@@ -56,11 +56,12 @@ export const stats = [
 // TODO: свои ссылки. Пустой href — контакт не показывается.
 export const contacts = {
   /** E-mail: показывается крупно, кнопка копирует его в буфер. */
-  email: 'hello@example.com',
+  email: 'dimich.94@yandex.ru',
   links: [
-    { label: 'Telegram', href: 'https://t.me/username' },
-    { label: 'GitHub', href: 'https://github.com/username' },
-    { label: 'hh.ru', href: 'https://hh.ru/resume/xxxxxxxx' },
+    { label: 'Telegram', href: 'https://t.me/ryabov_29' },
+    { label: 'GitHub', href: 'https://github.com/dmitriy9427' },
+    // TODO: ссылка на резюме hh.ru (пусто — не показывается)
+    { label: 'hh.ru', href: '' },
   ],
   /** PDF-версия резюме в public/ (например, '/cv.pdf'). Пусто — кнопка скрыта. */
   cv: '',
@@ -267,7 +268,7 @@ export const projects: Project[] = [
     stack: ['Three.js', 'GLSL', 'GSAP', 'Swiper'],
     href: '',
     featured: true,
-    cover: { text: 'История', note: { ru: 'Скоро в проде', en: 'Coming soon' } },
+    cover: { text: 'История', note: { ru: 'Закрытый проект', en: 'Private project' } },
   },
   {
     title: { ru: 'Сайт МИЭТ', en: 'MIET university website' },
