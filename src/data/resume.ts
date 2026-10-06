@@ -335,8 +335,7 @@ export const pets = [
       '/projects/lepestok-preloader.webp',
     ],
     stack: ['React', 'TypeScript', 'GSAP', 'WebGL', 'Vitest'],
-    // TODO: ссылка на демо
-    demo: '',
+    demo: 'https://dmitriy9427.github.io/lepestok/',
     repo: 'https://github.com/dmitriy9427/lepestok',
   },
   {
@@ -348,8 +347,7 @@ export const pets = [
     } as L,
     images: ['/projects/sosny-home.webp', '/projects/sosny-chess.webp', '/projects/sosny-flat.webp'],
     stack: ['Astro', 'TypeScript', 'Three.js', 'GSAP', 'SCSS'],
-    // TODO: ссылка на демо
-    demo: '',
+    demo: 'https://dmitriy9427.github.io/zhk-sosny/',
     repo: 'https://github.com/dmitriy9427/zhk-sosny',
   },
   {
@@ -361,8 +359,7 @@ export const pets = [
     } as L,
     images: ['/projects/orbita-home.webp', '/projects/orbita-sliders.webp', '/projects/orbita-destinations.webp'],
     stack: ['GSAP', 'Three.js', 'GLSL', 'Vite', 'Vitest'],
-    // TODO: ссылка на демо
-    demo: '',
+    demo: 'https://dmitriy9427.github.io/space-agency/',
     repo: 'https://github.com/dmitriy9427/space-agency',
   },
   {
@@ -374,7 +371,7 @@ export const pets = [
     } as L,
     images: ['/projects/kit-drum.webp', '/projects/kit-form.webp'],
     stack: ['TypeScript', 'Astro', 'React', 'SCSS', 'GSAP'],
-    demo: '',
+    demo: 'https://dmitriy9427.github.io/frontend-kit/',
     repo: 'https://github.com/dmitriy9427/frontend-kit',
   },
 ]
