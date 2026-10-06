@@ -267,7 +267,7 @@ export const projects: Project[] = [
     category: 'edu',
     year: '2024',
     stack: ['JavaScript', 'React', 'SCSS', 'Swiper'],
-    href: '',
+    href: 'https://pskgu.ru',
   },
   {
     title: { ru: 'Сайт аграрного университета', en: 'Agricultural university website' },
@@ -278,7 +278,7 @@ export const projects: Project[] = [
     category: 'edu',
     year: '2025',
     stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP'],
-    href: '',
+    href: 'https://bgsha.ru',
   },
   {
     title: { ru: 'Сайт университета', en: 'University website' },
