@@ -75,7 +75,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
   },
   {
     title: { ru: 'JavaScript', en: 'JavaScript' },
-    items: ['JavaScript (ES2023)', 'TypeScript', 'DOM API', 'Web Components', 'htmx'],
+    items: ['JavaScript (ES2023)', 'TypeScript', 'DOM API', 'Web Components', 'htmx', 'Telegram Mini Apps'],
   },
   {
     title: { ru: 'Фреймворки', en: 'Frameworks' },
@@ -388,6 +388,18 @@ export const pets = [
     stack: ['Nuxt', 'Vue 3', 'Pinia', 'Supabase', 'TypeScript'],
     demo: 'https://dmitriy9427.github.io/letuchka/',
     repo: 'https://github.com/dmitriy9427/letuchka',
+  },
+  {
+    title: { ru: 'Мята', en: 'Myata' } as L,
+    subtitle: { ru: 'Telegram Mini App для записи в студию', en: 'Telegram Mini App for salon booking' } as L,
+    description: {
+      ru: 'Запись к мастеру прямо в Telegram: услуга, мастер, свободное время, подтверждение. Цвета темы пользователя, родные кнопки Telegram (MainButton, BackButton), вибрация, записи в CloudStorage — видны на всех устройствах. Расписание с учётом длительности услуги и режимом «любой мастер», демо-режим вне Telegram.',
+      en: 'Book a master right inside Telegram: service, master, free slot, confirmation. Uses the user’s theme colors, native Telegram buttons (MainButton, BackButton), haptics, bookings in CloudStorage synced across devices. Scheduling respects service duration with an “any master” mode; a demo mode outside Telegram.',
+    } as L,
+    images: ['/projects/myata-book.webp', '/projects/myata-dark.webp', '/projects/myata-done.webp'],
+    stack: ['React', 'TypeScript', 'Telegram Mini Apps', 'Zustand', 'Vite'],
+    demo: 'https://dmitriy9427.github.io/myata/',
+    repo: 'https://github.com/dmitriy9427/myata',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
