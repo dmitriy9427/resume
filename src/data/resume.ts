@@ -427,6 +427,18 @@ export const pets = [
     repo: 'https://github.com/dmitriy9427/prilavok',
   },
   {
+    title: { ru: 'Опора', en: 'Opora' } as L,
+    subtitle: { ru: 'Библиотека React-компонентов', en: 'React component library' } as L,
+    description: {
+      ru: '16 доступных компонентов, написанных без Radix и других готовых основ: диалог с ловушкой фокуса и inert, меню и вкладки с навигацией стрелками, селект на aria-activedescendant, тосты с живыми областями, своё позиционирование с flip и shift. Стили в каскадных слоях и на токенах — переопределяются без !important. Пакет: ESM, типы, карта exports, проверки publint и attw, установка упакованного архива с серверным рендерингом. 133 теста с axe, Storybook.',
+      en: '16 accessible components built without Radix or other headless foundations: a dialog with a focus trap and inert, arrow-key navigation in menus and tabs, a select using aria-activedescendant, toasts as live regions, custom positioning with flip and shift. Styles in cascade layers and tokens — overridable without !important. Package: ESM, types, an exports map, publint and attw checks, installing the packed tarball with SSR. 133 tests with axe, Storybook.',
+    } as L,
+    images: ['/projects/opora-example.webp', '/projects/opora-dialog.webp', '/projects/opora-form.webp'],
+    stack: ['React', 'TypeScript', 'Accessibility (WAI-ARIA)', 'Storybook', 'Vitest'],
+    demo: 'https://dmitriy9427.github.io/opora/',
+    repo: 'https://github.com/dmitriy9427/opora',
+  },
+  {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
     subtitle: { ru: 'Сайт жилого комплекса', en: 'Residential complex website' } as L,
     description: {
