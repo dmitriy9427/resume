@@ -75,7 +75,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
   },
   {
     title: { ru: 'JavaScript', en: 'JavaScript' },
-    items: ['JavaScript (ES2023)', 'TypeScript', 'DOM API', 'Web Components', 'htmx', 'Telegram Mini Apps'],
+    items: ['JavaScript (ES2023)', 'TypeScript', 'DOM API', 'Web Components', 'htmx', 'Telegram Mini Apps', 'WebSocket'],
   },
   {
     title: { ru: 'Фреймворки', en: 'Frameworks' },
@@ -413,6 +413,18 @@ export const pets = [
     stack: ['React Native', 'Expo', 'TypeScript', 'Reanimated', 'Zustand'],
     demo: 'https://dmitriy9427.github.io/ritm/',
     repo: 'https://github.com/dmitriy9427/ritm',
+  },
+  {
+    title: { ru: 'Прилавок', en: 'Prilavok' } as L,
+    subtitle: { ru: 'Админка интернет-магазина с реальным временем', en: 'Real-time e-commerce admin panel' } as L,
+    description: {
+      ru: 'Свой WebSocket-клиент без библиотек: переподключение с нарастающей паузой и jitter, heartbeat, каналы, запросы с подтверждением, очередь и докачка пропущенных событий по номеру и эпохе сервера. События попадают в кэш TanStack Query, версии записей защищают от гонок. Серверная таблица с состоянием в адресе, 10 000 строк с виртуализацией, оптимистичные обновления, роли. Сервер работает в браузере через MSW и на Node. 138 тестов.',
+      en: 'A hand-written WebSocket client: reconnection with exponential backoff and jitter, heartbeat, channels, acknowledged requests, an offline queue and resuming missed events by sequence number and server epoch. Events flow into the TanStack Query cache; record versions guard against races. A server-side table with URL state, 10,000 virtualized rows, optimistic updates, roles. The server runs in the browser via MSW and on Node. 138 tests.',
+    } as L,
+    images: ['/projects/prilavok-dashboard.webp', '/projects/prilavok-realtime.webp', '/projects/prilavok-orders.webp'],
+    stack: ['React', 'TypeScript', 'WebSocket', 'TanStack Router / Query / Table', 'shadcn/ui'],
+    demo: 'https://dmitriy9427.github.io/prilavok/',
+    repo: 'https://github.com/dmitriy9427/prilavok',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
