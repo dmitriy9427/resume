@@ -81,6 +81,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
     title: { ru: 'Фреймворки', en: 'Frameworks' },
     items: [
       'React',
+      'React Native, Expo',
       'Next.js (App Router)',
       'Vue 3, Nuxt, Pinia',
       'Astro',
@@ -400,6 +401,18 @@ export const pets = [
     stack: ['React', 'TypeScript', 'Telegram Mini Apps', 'Zustand', 'Vite'],
     demo: 'https://dmitriy9427.github.io/myata/',
     repo: 'https://github.com/dmitriy9427/myata',
+  },
+  {
+    title: { ru: 'Ритм', en: 'Ritm' } as L,
+    subtitle: { ru: 'Мобильное приложение: трекер привычек', en: 'Mobile app: habit tracker' } as L,
+    description: {
+      ru: 'Приложение на React Native и Expo: один код для iOS, Android и браузера. Привычки по дням недели, счётчики, серии, статистика с «тепловой картой». Отметка свайпом — жест и анимация в UI-потоке (Gesture Handler, Reanimated), кольцо прогресса на SVG. Данные на устройстве с версией и миграцией, локальные напоминания, вибрация, тёмная тема, доступность.',
+      en: 'A React Native + Expo app: one codebase for iOS, Android and the web. Habits by weekday, counters, streaks, stats with a heatmap. Swipe to check off — the gesture and animation run on the UI thread (Gesture Handler, Reanimated), with an SVG progress ring. On-device data with versioning and migration, local reminders, haptics, dark theme, accessibility.',
+    } as L,
+    images: ['/projects/ritm-light.webp', '/projects/ritm-dark.webp'],
+    stack: ['React Native', 'Expo', 'TypeScript', 'Reanimated', 'Zustand'],
+    demo: 'https://dmitriy9427.github.io/ritm/',
+    repo: 'https://github.com/dmitriy9427/ritm',
   },
   {
     title: { ru: 'Квартал «Сосны»', en: 'Sosny Residence' } as L,
