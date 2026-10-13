@@ -417,8 +417,8 @@ export const pets = [
     title: { ru: 'ОРБИТА', en: 'ORBITA' } as L,
     subtitle: { ru: 'Сайт космического агентства', en: 'Space agency website' } as L,
     description: {
-      ru: '3D-ракета, которая летит по скроллу, все плагины GSAP, шейдерные переходы между страницами, симуляция воды на GPU, бесконечная галерея. 120 fps, 200+ тестов.',
-      en: 'A 3D rocket flying on scroll, every GSAP plugin, shader page transitions, GPU water simulation, infinite gallery. 120 fps, 200+ tests.',
+      ru: '3D-ракета летит по своей траектории, пока листаешь страницу, а по кнопке «Пуск» проходит её обратно и садится на стартовую площадку. Все 16 плагинов GSAP, шесть слайдеров без библиотек, шейдерные переходы, симуляция воды на GPU, бесконечная галерея. Три страницы, 120 fps, 218 тестов.',
+      en: 'A 3D rocket follows its trajectory as you scroll, and on “Launch” flies it back and lands on the pad. All 16 GSAP plugins, six library-free sliders, shader transitions, GPU water simulation, an infinite gallery. Three pages, 120 fps, 218 tests.',
     } as L,
     images: ['/projects/orbita-home.webp', '/projects/orbita-sliders.webp', '/projects/orbita-destinations.webp'],
     stack: ['GSAP', 'Three.js', 'GLSL', 'Vite', 'Vitest'],
