@@ -87,7 +87,8 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
       'Astro',
       'React Router',
       'TanStack Router / Table / Virtual',
-      'Redux Toolkit',
+      'Redux Toolkit, RTK Query',
+      'Feature-Sliced Design',
       'Zustand',
       'TanStack Query',
       'React Hook Form',
@@ -413,6 +414,18 @@ export const pets = [
     stack: ['React Native', 'Expo', 'TypeScript', 'Reanimated', 'Zustand'],
     demo: 'https://dmitriy9427.github.io/ritm/',
     repo: 'https://github.com/dmitriy9427/ritm',
+  },
+  {
+    title: { ru: 'Сальдо', en: 'Saldo' } as L,
+    subtitle: { ru: 'Учёт личных финансов на Redux Toolkit и FSD', en: 'Personal finance app on Redux Toolkit and FSD' } as L,
+    description: {
+      ru: 'RTK Query: один createApi, эндпоинты в сущностях, теги — после любой операции сами обновляются список, остатки, графики и бюджеты; оптимистичная правка с откатом. Удаление с отменой на listener middleware, мастер импорта CSV на createSlice и createSelector (кодировка, колонки и категории угадываются, дубликаты пропускаются). Архитектура Feature-Sliced Design с проверкой Steiger. Формы на react-hook-form + zod, деньги в копейках, графики Recharts. 74 теста: Vitest с MSW и Playwright.',
+      en: 'RTK Query: a single createApi with endpoints injected per entity and tags — after any change the list, balances, charts and budgets refresh themselves; optimistic edits with rollback. Undoable delete via listener middleware, a CSV import wizard on createSlice and createSelector (encoding, columns and categories are detected, duplicates skipped). Feature-Sliced Design architecture enforced by Steiger. Forms with react-hook-form + zod, money in minor units, Recharts charts. 74 tests: Vitest with MSW and Playwright.',
+    } as L,
+    images: ['/projects/saldo-dashboard.webp', '/projects/saldo-import.webp', '/projects/saldo-budgets.webp'],
+    stack: ['React', 'TypeScript', 'Redux Toolkit', 'RTK Query', 'Feature-Sliced Design'],
+    demo: 'https://dmitriy9427.github.io/saldo/',
+    repo: 'https://github.com/dmitriy9427/saldo',
   },
   {
     title: { ru: 'Прилавок', en: 'Prilavok' } as L,
