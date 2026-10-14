@@ -23,7 +23,13 @@ const t = useTranslations(locale)
           <article class="stack-cards__item pet" data-stack-card>
             <div class="pet__info">
               <p class="pet__index">0{i + 1}</p>
-              <h3 class="pet__title">{pick(pet.title, locale)}</h3>
+              <h3 class="pet__title">
+                {/* Ссылка растянута на всю карточку (::after): по карточке можно просто нажать.
+                    Кнопки и галерея лежат поверх неё и работают как обычно. */}
+                <a class="pet__link" href={pet.demo ?? pet.repo} target="_blank" rel="noopener">
+                  {pick(pet.title, locale)}
+                </a>
+              </h3>
               <p class="pet__subtitle">{pick(pet.subtitle, locale)}</p>
               <p class="pet__text">{pick(pet.description, locale)}</p>
               <ul class="chips chips--sm">
