@@ -75,7 +75,7 @@ export const skills: { title: L; items: string[]; note?: L }[] = [
   },
   {
     title: { ru: 'JavaScript', en: 'JavaScript' },
-    items: ['JavaScript (ES2023)', 'TypeScript', 'DOM API', 'Web Components', 'htmx', 'Telegram Mini Apps', 'WebSocket'],
+    items: ['JavaScript (ES2023)', 'TypeScript', 'DOM API', 'Web Components', 'htmx', 'Telegram Mini Apps', 'WebSocket', 'Авторизация: JWT, OAuth 2.0 + PKCE, WebAuthn'],
   },
   {
     title: { ru: 'Фреймворки', en: 'Frameworks' },
@@ -414,6 +414,18 @@ export const pets = [
     stack: ['React Native', 'Expo', 'TypeScript', 'Reanimated', 'Zustand'],
     demo: 'https://dmitriy9427.github.io/ritm/',
     repo: 'https://github.com/dmitriy9427/ritm',
+  },
+  {
+    title: { ru: 'Пропуск', en: 'Propusk' } as L,
+    subtitle: { ru: 'Авторизация, сделанная как в продукте', en: 'Production-grade authentication' } as L,
+    description: {
+      ru: 'Access-токен (JWT) в памяти и refresh-токен в HttpOnly-cookie с ротацией и обнаружением кражи; пароли на PBKDF2 с защитой от перебора и одинаковыми ошибками. Двухфакторная защита (TOTP, коды восстановления), ключи доступа (WebAuthn), вход через провайдера по OAuth 2.0 + PKCE + OpenID Connect, ссылки из писем, устройства, режим судо, роли. Клиент обновляет токен один раз на все запросы и вкладки (Web Locks), выходит во всех вкладках (BroadcastChannel). Сервер на Hono работает и на Node, и в браузере. 62 теста, включая passkeys в Playwright.',
+      en: 'A JWT access token in memory and a refresh token in an HttpOnly cookie with rotation and theft detection; PBKDF2 passwords with brute-force protection and uniform errors. Two-factor auth (TOTP, recovery codes), passkeys (WebAuthn), sign-in via a provider with OAuth 2.0 + PKCE + OpenID Connect, email links, devices, sudo mode, roles. The client refreshes once for all requests and tabs (Web Locks) and logs out everywhere (BroadcastChannel). The Hono server runs both on Node and in the browser. 62 tests, including passkeys in Playwright.',
+    } as L,
+    images: ['/projects/propusk-hood.webp', '/projects/propusk-security.webp', '/projects/propusk-oauth.webp'],
+    stack: ['React', 'TypeScript', 'OAuth 2.0 / OIDC', 'WebAuthn', 'Hono'],
+    demo: 'https://dmitriy9427.github.io/propusk/',
+    repo: 'https://github.com/dmitriy9427/propusk',
   },
   {
     title: { ru: 'Сальдо', en: 'Saldo' } as L,
