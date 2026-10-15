@@ -93,7 +93,7 @@ npm run build      # готовый сайт в dist/
 
 ## Как устроено
 
-Учебные главы «что, как и почему» — в [docs/](docs/README.md):
+Учебник: [с чего начать](docs/00-start.md) и [разбор кода](docs/code/README.md); главы «что, как и почему» — в [docs/](docs/README.md):
 [архитектура](docs/01-architecture.md) ·
 [эффекты](docs/02-effects.md) ·
 [деплой](docs/03-deploy.md) ·
