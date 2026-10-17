@@ -380,6 +380,18 @@ export const pets = [
     repo: 'https://github.com/dmitriy9427/resonance',
   },
   {
+    title: { ru: '3D-конструктор', en: '3D Constructor' } as L,
+    subtitle: { ru: 'Конструктор WebGL-анимаций с экспортом кода', en: 'WebGL animation builder with code export' } as L,
+    description: {
+      ru: '40 эффектов настраиваются ползунками, готовый код забирается как JS-модуль, React-компонент или веб-компонент — тот же рантайм, что рисует превью, около 8 КБ в gzip. Фоны на GLSL (море со сменой суток и штормом, облака на шуме Перлина — Ворли, космос, огонь, жидкий металл), симуляции жидкости на GPU, переходы, прожигающие настоящую HTML-секцию, курсоры, жидкая кнопка, прелоадер, 3D на three.js. Свой шейдер прямо в редакторе, траектории, адаптивное качество. Главная — скролл-сцена на GSAP из этих же эффектов. 131 тест, учебник из 17 глав.',
+      en: '40 effects tuned with sliders; the code is exported as a JS module, a React component or a web component — the same runtime that renders the preview, about 8 KB gzipped. GLSL backgrounds (a sea with a day cycle and storms, Perlin-Worley clouds, space, fire, liquid metal), GPU fluid simulations, transitions that burn through a real HTML section, cursors, a liquid button, a preloader, three.js 3D. Write your own shader in the editor, motion paths, adaptive quality. The home page is a GSAP scroll scene built from the same effects. 131 tests, a 17-chapter tutorial.',
+    } as L,
+    images: ['/projects/konstruktor-home.webp', '/projects/konstruktor-waves.webp', '/projects/konstruktor-burn.webp'],
+    stack: ['WebGL2 / GLSL', 'Three.js', 'GSAP', 'React', 'TypeScript'],
+    demo: 'https://dmitriy9427.github.io/konstruktor-3d/',
+    repo: 'https://github.com/dmitriy9427/konstruktor-3d',
+  },
+  {
     title: { ru: 'Летучка', en: 'Letuchka' } as L,
     subtitle: { ru: 'Онлайн-ретро для команды', en: 'Team retrospective board' } as L,
     description: {
