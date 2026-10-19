@@ -232,7 +232,6 @@ export const projects: Project[] = [
     stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP', 'Barba.js', 'Lenis'],
     href: 'https://medmol.volgmed.ru',
     image: '/projects/work-medmol.webp',
-    featured: true,
   },
 ]
 
