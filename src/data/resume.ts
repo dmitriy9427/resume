@@ -166,6 +166,63 @@ export const experience = [
   },
 ]
 
+// ─── Проекты в продакшне ─────────────────────────────────────────────────────
+/**
+ * Категории для фильтра. Ключ — в поле category проекта.
+ * Порядок здесь = порядок кнопок.
+ */
+export const categories: Record<string, L> = {
+  edu: { ru: 'Образование', en: 'Education' },
+  med: { ru: 'Медицина', en: 'Healthcare' },
+  app: { ru: 'Сервисы и кабинеты', en: 'Apps & dashboards' },
+  special: { ru: 'Спецпроекты', en: 'Special projects' },
+}
+
+export type Project = {
+  title: L
+  /** Описание без внутренних деталей (NDA): что за сайт и что делал я. */
+  description: L
+  category: keyof typeof categories
+  year: string
+  stack: string[]
+  /** Ссылка на живой сайт. Пусто — «ссылка по запросу» (закрытый проект). */
+  href: string
+  /** Отметить как ключевой — карточка крупнее. */
+  featured?: boolean
+  /** Превью — скриншот сайта в public/projects (960×600, webp). */
+  image?: string
+  /** Без скриншота (NDA, ещё не в проде) — крупная подпись на обложке. */
+  cover?: { text: string; note: L }
+}
+
+// TODO: проверьте годы и ссылки (там, где href пустой, — заглушка «по запросу»)
+export const projects: Project[] = [
+  {
+    title: { ru: 'Сайт МИЭТ', en: 'MIET university website' },
+    description: {
+      ru: 'Разделы и блоки сайта, таблицы, баннеры, адаптив.',
+      en: 'Site sections and blocks, tables, banners, responsive layout.',
+    },
+    category: 'edu',
+    year: '2025',
+    stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP'],
+    href: 'https://miet.ru',
+    image: '/projects/work-miet.webp',
+  },
+  {
+    title: { ru: 'Сайт Бурятской ГСХА', en: 'Buryat State Agricultural Academy website' },
+    description: {
+      ru: 'Поиск по сайту, баннеры, статьи, уведомление о cookies.',
+      en: 'Site search, banners, articles, cookie notice.',
+    },
+    category: 'edu',
+    year: '2025',
+    stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP'],
+    href: 'https://bgsha.ru',
+    image: '/projects/work-bgsha.webp',
+  },
+]
+
 // ─── Пет-проекты ─────────────────────────────────────────────────────────────
 export const pets = [
   {

@@ -1,0 +1,180 @@
+// Проекты в продакшне.
+@use 'abstracts' as *;
+
+.flip-filter__tabs {
+  sup {
+    margin-left: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    opacity: 0.6;
+  }
+}
+
+.projects__grid {
+  display: grid;
+  // dense: обычные карточки заполняют дыры рядом с широкими (featured).
+  grid-auto-flow: dense;
+  gap: space(4);
+
+  @include up('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include up('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: space(4);
+  padding: fluid(22px, 32px);
+
+  @include up('lg') {
+    &--featured {
+      grid-column: span 2;
+      background:
+        radial-gradient(80% 120% at 100% 0%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 60%),
+        var(--color-surface);
+    }
+  }
+}
+
+.project__top {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: rem(12px);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project__title {
+  font-size: fluid(20px, 26px);
+  font-weight: 600;
+  line-height: 1.2;
+
+  .project--featured & {
+    font-size: fluid(24px, 34px);
+  }
+}
+
+.project__text {
+  flex: 1;
+  color: var(--color-muted);
+}
+
+.project__link {
+  align-self: flex-start;
+  margin-top: space(2);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+
+  span {
+    display: inline-block;
+    transition: transform var(--duration) var(--ease);
+  }
+
+  @include hover {
+    span {
+      transform: translate(3px, -3px);
+    }
+  }
+
+  &--nda {
+    font-family: var(--font-mono);
+    font-size: rem(12px);
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+}
+
+// ─── Превью: скриншот сайта или обложка (NDA / ещё не в проде) ───────────────
+.project__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin: calc(-1 * fluid(10px, 16px)) calc(-1 * fluid(10px, 16px)) 0;
+  overflow: hidden;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-lg) - 6px);
+
+  @include up('lg') {
+    .project--featured & {
+      aspect-ratio: 21 / 9;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.9s var(--ease);
+  }
+
+  .project:hover & img {
+    transform: scale(1.04);
+  }
+}
+
+// Обложка без скриншота: градиент цвета категории и крупная подпись.
+.project__cover {
+  --cover: var(--color-accent);
+
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(70% 90% at 15% 10%, color-mix(in srgb, var(--cover) 45%, transparent), transparent 70%),
+    radial-gradient(60% 80% at 90% 100%, color-mix(in srgb, var(--cover) 25%, transparent), transparent 70%),
+    repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--color-text) 4%, transparent) 14px 15px),
+    var(--color-bg);
+
+  &[data-category='med'] {
+    --cover: #2dd4bf;
+  }
+
+  &[data-category='app'] {
+    --cover: #f472b6;
+  }
+
+  &[data-category='special'] {
+    --cover: #fbbf24;
+  }
+}
+
+.project__cover-text {
+  padding-inline: space(4);
+  font-family: var(--font-heading);
+  font-size: fluid(34px, 56px);
+  font-weight: 700;
+  line-height: 1;
+  // Заливка, а не -webkit-text-stroke: у вариативного шрифта контур рисует
+  // внутренние линии перекрытых частей букв.
+  color: color-mix(in srgb, var(--color-text) 16%, transparent);
+  text-align: center;
+  transition: color 0.6s var(--ease);
+
+  .project:hover & {
+    color: color-mix(in srgb, var(--cover) 75%, transparent);
+  }
+}
+
+.project__cover-note {
+  position: absolute;
+  top: space(3);
+  right: space(3);
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: rem(11px);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: color-mix(in srgb, var(--color-bg) 70%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
