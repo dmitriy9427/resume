@@ -1,0 +1,14 @@
+---
+import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { profile } from '../data/resume'
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© {new Date().getFullYear()} {pick(profile.name, locale)} {pick(profile.surname, locale)}</p>
+    <p class="muted">{t('footer.made')}</p>
+  </div>
+</footer>
+<button class="scroll-top" data-module="scroll-top" aria-label="↑">↑</button>

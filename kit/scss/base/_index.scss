@@ -1,0 +1,8 @@
+// Базовые стили: переменные, сброс, типографика, доступность, утилиты.
+@use 'root';
+@use 'reset';
+@use 'typography';
+@use 'a11y';
+@use 'lenis';
+@use 'scrollbar';
+@use 'utilities';

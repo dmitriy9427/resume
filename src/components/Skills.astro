@@ -1,0 +1,31 @@
+---
+/** Навыки — «бенто»-сетка карточек с подсветкой за курсором. Данные — skills в src/data/resume.ts. */
+import { asLocale, pick, useTranslations } from '../i18n/ui'
+import { skills } from '../data/resume'
+
+const locale = asLocale(Astro.currentLocale)
+const t = useTranslations(locale)
+---
+
+<section class="section skills" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title" data-reveal><span class="section-title__index">02</span>{t('skills.title')}</h2>
+      <p class="section-head__lead muted" data-reveal>{t('skills.lead')}</p>
+    </div>
+    <div class="bento" data-module="spotlight">
+      {
+        skills.map((group, i) => (
+          <article class={`bento__card spot bento__card--${i + 1}`} data-reveal>
+            <h3 class="bento__title">{pick(group.title, locale)}</h3>
+            <ul class="chips">
+              {group.items.map((item) => (
+                <li class="chip">{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,122 @@
+// Обо мне, цифры, опыт.
+@use 'abstracts' as *;
+
+.about__grid {
+  display: grid;
+  gap: space(8);
+
+  @include up('lg') {
+    grid-template-columns: 1fr 1.6fr;
+  }
+}
+
+.about__text {
+  display: grid;
+  gap: space(5);
+  font-size: fluid(16px, 19px);
+}
+
+.about__lead {
+  font-size: fluid(20px, 30px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.stats {
+  display: grid;
+  gap: space(6);
+  margin-top: fluid(48px, 96px);
+
+  @include up('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat {
+  display: grid;
+  gap: space(2);
+  padding-top: space(5);
+  border-top: 1px solid var(--color-border);
+}
+
+.stat__value {
+  font-family: var(--font-heading);
+  font-size: fluid(48px, 88px);
+  font-weight: 600;
+  line-height: 1;
+  background: linear-gradient(120deg, var(--color-text), var(--color-accent));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat__label {
+  color: var(--color-muted);
+}
+
+.experience {
+  margin-top: fluid(56px, 112px);
+}
+
+.experience__title {
+  margin-bottom: space(6);
+  font-family: var(--font-mono);
+  font-size: rem(13px);
+  font-weight: 400;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.job {
+  display: grid;
+  gap: space(6);
+  padding-block: space(8);
+  border-top: 1px solid var(--color-border);
+
+  @include up('lg') {
+    grid-template-columns: 1fr 1.6fr;
+  }
+}
+
+.job__period {
+  font-family: var(--font-mono);
+  font-size: rem(13px);
+  color: var(--color-accent);
+}
+
+.job__company {
+  margin-block: space(2);
+  font-size: fluid(28px, 44px);
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.job__role {
+  color: var(--color-muted);
+}
+
+.job__points {
+  @include reset-list;
+
+  display: grid;
+  gap: space(4);
+  font-size: fluid(16px, 18px);
+
+  li {
+    position: relative;
+    padding-left: space(6);
+
+    &::before {
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: space(3);
+      height: 1px;
+      content: '';
+      background: var(--color-accent);
+    }
+  }
+}

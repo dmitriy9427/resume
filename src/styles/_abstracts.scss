@@ -1,0 +1,36 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// «Лицо» резюме: цвета обеих тем, шрифты, сетка. Меняйте здесь.
+// Подключается в каждом scss-файле: @use 'abstracts' as *;
+// ═══════════════════════════════════════════════════════════════════════════
+@forward 'kit/scss/abstracts' with (
+  // Светлая тема (переключатель в шапке).
+  $colors: (
+      'bg': #f6f5fb,
+      'surface': #fff,
+      'text': #0e0e16,
+      'muted': #5d5c73,
+      'border': #e4e2ef,
+      'accent': #5b3df5,
+      'accent-contrast': #fff,
+      'focus': #5b3df5
+    ),
+  // Тёмная тема — по умолчанию (см. layouts/Base.astro).
+  $colors-dark: (
+      'bg': #07070d,
+      'surface': #10101a,
+      'text': #eeedf7,
+      'muted': #8e8ca8,
+      'border': #20202f,
+      'accent': #8b6cff,
+      'accent-contrast': #fff,
+      'focus': #a58eff
+    ),
+  $font-base: ('Manrope Variable', system-ui, sans-serif),
+  $font-heading: ('Unbounded Variable', 'Manrope Variable', sans-serif),
+  $font-mono: ('JetBrains Mono Variable', ui-monospace, monospace),
+  $container-max: 1320px
+);
+
+// Второй акцент (бирюзовый) — для градиентов и мелких деталей.
+$accent-2: #22d3ee;
+$accent-3: #f0479a;
