@@ -221,6 +221,19 @@ export const projects: Project[] = [
     href: 'https://bgsha.ru',
     image: '/projects/work-bgsha.webp',
   },
+  {
+    title: { ru: 'Молодёжный портал ВолгГМУ', en: 'Volgograd Medical University youth portal' },
+    description: {
+      ru: '«Искусство быть врачом»: плавные переходы между страницами, видео-слайдеры, календарь событий, формы.',
+      en: '“The art of being a doctor”: smooth page transitions, video sliders, an events calendar, forms.',
+    },
+    category: 'med',
+    year: '2026',
+    stack: ['Pug', 'SCSS', 'JavaScript', 'GSAP', 'Barba.js', 'Lenis'],
+    href: 'https://medmol.volgmed.ru',
+    image: '/projects/work-medmol.webp',
+    featured: true,
+  },
 ]
 
 // ─── Пет-проекты ─────────────────────────────────────────────────────────────
