@@ -1,6 +1,6 @@
 ---
 /** Контакты: крупный призыв, e-mail с копированием, ссылки, PDF. Данные — contacts в src/data/resume.ts. */
-import { asLocale, useTranslations } from '../i18n/ui'
+import { asLocale, useTranslations, withBase } from '../i18n/ui'
 import { contacts } from '../data/resume'
 
 const locale = asLocale(Astro.currentLocale)
@@ -34,7 +34,7 @@ const links = contacts.links.filter((link) => link.href)
       {
         contacts.cv && (
           <li>
-            <a href={contacts.cv} download>
+            <a href={withBase(contacts.cv)} download>
               {t('contact.cv')}
             </a>
           </li>

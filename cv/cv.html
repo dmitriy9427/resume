@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Дмитрий Рябов — Frontend-разработчик</title>
+    <style>
+      @page { size: A4; margin: 14mm 15mm; }
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #1a1d24; font: 10pt/1.45 -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+      h1 { margin: 0; font-size: 24pt; line-height: 1.1; letter-spacing: -0.01em; }
+      .role { margin: 2px 0 8px; font-size: 12pt; color: #4b5563; }
+      .contacts { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 12px; padding: 0; list-style: none; font-size: 9.5pt; }
+      a { color: #1d4ed8; text-decoration: none; }
+      h2 { margin: 14px 0 6px; padding-bottom: 3px; border-bottom: 1px solid #d1d5db; font-size: 10pt; letter-spacing: 0.08em; text-transform: uppercase; color: #374151; }
+      p { margin: 0 0 6px; }
+      ul.list { margin: 0; padding-left: 16px; }
+      ul.list li { margin-bottom: 2px; }
+      .row { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; }
+      .row span:last-child { font-weight: 400; color: #4b5563; white-space: nowrap; }
+      dl { display: grid; grid-template-columns: 120px 1fr; gap: 3px 12px; margin: 0; }
+      dt { font-weight: 600; }
+      dd { margin: 0; }
+      .proj { margin-bottom: 4px; }
+      .muted { color: #6b7280; }
+    </style>
+  </head>
+  <body>
+    <h1>Дмитрий Рябов</h1>
+    <p class="role">Frontend-разработчик</p>
+    <ul class="contacts">
+      <li>Россия · удалённо</li>
+      <li><a href="mailto:dimich.94@yandex.ru">dimich.94@yandex.ru</a></li>
+      <li><a href="https://t.me/ryabov_29">t.me/ryabov_29</a></li>
+      <li><a href="https://github.com/dmitriy9427">github.com/dmitriy9427</a></li>
+      <li><a href="https://dmitriy9427.github.io/resume/">dmitriy9427.github.io/resume</a></li>
+    </ul>
+
+    <h2>О себе</h2>
+    <p>
+      Frontend-разработчик, коммерческий опыт с 2024 года. Участвовал в 25+ проектах, в 12 из них был основным
+      фронтендером: сайты и порталы, лендинги, веб-приложения. Делаю адаптивную вёрстку по макетам Figma, интерфейсы на
+      React и TypeScript, анимации на GSAP и WebGL-сцены на Three.js.
+    </p>
+    <p>
+      Пишу аккуратный компонентный код: доступность, производительность, тесты и документация для меня часть работы.
+    </p>
+
+    <h2>Навыки</h2>
+    <dl>
+      <dt>Вёрстка</dt>
+      <dd>HTML5, SCSS, БЭМ, адаптив, доступность (a11y), Pug, Tailwind</dd>
+      <dt>Языки</dt>
+      <dd>JavaScript (ES2023), TypeScript</dd>
+      <dt>Фреймворки</dt>
+      <dd>React, Next.js, Astro, Vue 3 / Nuxt, Redux Toolkit, TanStack Query / Router, Zustand</dd>
+      <dt>Анимации и графика</dt>
+      <dd>GSAP (ScrollTrigger), Three.js, GLSL-шейдеры, Lenis, Swiper, Canvas</dd>
+      <dt>Инструменты</dt>
+      <dd>Vite, Webpack, Gulp, Storybook, Vitest, Jest, Playwright, ESLint / Stylelint, Git</dd>
+    </dl>
+
+    <h2>Опыт работы</h2>
+    <div class="row"><span>Frontend-разработчик, Paraweb</span><span>2024 — настоящее время</span></div>
+    <ul class="list">
+      <li>Вёрстка и фронтенд коммерческих сайтов: от макета до продакшна, адаптив, кроссбраузерность.</li>
+      <li>Большая часть UI-кита на Astro + React + TypeScript: около 80 компонентов, Storybook, тесты.</li>
+      <li>Анимации и WebGL: шейдеры, 3D-слайдеры, эффекты при прокрутке.</li>
+      <li>Интерфейсы на React: личные кабинеты, формы, фильтры.</li>
+      <li>Поддержка запущенных проектов: доработки, исправление ошибок, адаптив, правки по код-ревью.</li>
+    </ul>
+
+    <h2>Проекты в продакшне</h2>
+    <p class="proj"><strong>Сайт МИЭТ</strong> — разделы, таблицы, баннеры, адаптив. <a href="https://miet.ru">miet.ru</a></p>
+    <p class="proj"><strong>Сайт Бурятской ГСХА</strong> — поиск, баннеры, статьи. <a href="https://bgsha.ru">bgsha.ru</a></p>
+    <p class="proj"><strong>Молодёжный портал ВолгГМУ</strong> — плавные переходы между страницами, видео-слайдеры, календарь. <a href="https://medmol.volgmed.ru">medmol.volgmed.ru</a></p>
+
+    <h2>Личные проекты (открытый код)</h2>
+    <p class="proj"><strong>Опора</strong> — 16 доступных React-компонентов без готовых основ, Storybook, 133 теста. <a href="https://dmitriy9427.github.io/opora/">демо</a></p>
+    <p class="proj"><strong>Прилавок</strong> — админка с реальным временем: свой WebSocket-клиент, TanStack Query и Table. <a href="https://dmitriy9427.github.io/prilavok/">демо</a></p>
+    <p class="proj"><strong>Пропуск</strong> — авторизация: JWT, 2FA, passkeys, OAuth 2.0 + PKCE. <a href="https://dmitriy9427.github.io/propusk/">демо</a></p>
+    <p class="proj"><strong>Лепесток</strong> — сайт цветочного магазина с шейдерными переходами и конструктором букета. <a href="https://dmitriy9427.github.io/lepestok/">демо</a></p>
+  </body>
+</html>
