@@ -17,8 +17,7 @@ export const profile = {
   name: { ru: 'Дмитрий', en: 'Dmitry' } as L,
   surname: { ru: 'Рябов', en: 'Ryabov' } as L,
   role: { ru: 'Frontend-разработчик', en: 'Frontend Developer' } as L,
-  // TODO: город
-  location: { ru: 'Россия · удалённо', en: 'Russia · remote' } as L,
+  location: { ru: 'Россия · удалённо · МСК', en: 'Russia · remote · Moscow time' } as L,
   /** Короткая подпись под именем на первом экране. */
   pitch: {
     ru: 'Делаю быстрые и живые интерфейсы: от вёрстки сайтов до WebGL-анимаций и панелей управления на React.',
