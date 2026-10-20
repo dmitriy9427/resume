@@ -237,6 +237,18 @@ export const projects: Project[] = [
 // ─── Пет-проекты ─────────────────────────────────────────────────────────────
 export const pets = [
   {
+    title: { ru: 'Поток', en: 'Potok' } as L,
+    subtitle: { ru: 'AI-чат со стримингом', en: 'Streaming AI chat' } as L,
+    description: {
+      ru: 'Ответ приходит потоком по SSE: свой парсер выдерживает разрыв события в любом месте, даже посреди символа. Markdown дорисовывается по ходу, незакрытый блок кода остаётся кодом, HTML из ответа не выполняется. Остановка по кнопке и Esc с сохранением уже полученного текста, повтор после обрыва, вызовы инструментов с карточками, калькулятор без eval. Токены применяются пачкой раз в кадр, автопрокрутка не мешает читать, скринридер слышит начало и конец ответа, а не каждый токен. Сервер модели работает в браузере. 100 тестов, включая axe.',
+      en: 'The answer streams over SSE: a hand-written parser survives an event being cut anywhere, even mid-character. Markdown renders as it arrives, an unclosed code block stays code, HTML in the answer never runs. Stop by button or Esc keeping the text received so far, retry after a dropped connection, tool calls with cards, a calculator without eval. Tokens are applied in one batch per frame, auto-scroll never fights the reader, and a screen reader hears the start and end of an answer, not every token. The model server runs in the browser. 100 tests, including axe.',
+    } as L,
+    images: ['/projects/potok-streaming.webp', '/projects/potok-code.webp', '/projects/potok-tools.webp'],
+    stack: ['React', 'TypeScript', 'SSE', 'zustand', 'Accessibility (WAI-ARIA)'],
+    demo: 'https://dmitriy9427.github.io/potok/',
+    repo: 'https://github.com/dmitriy9427/potok',
+  },
+  {
     title: { ru: 'Лепесток', en: 'Lepestok' } as L,
     subtitle: { ru: 'Цветочный магазин', en: 'Flower shop' } as L,
     description: {
