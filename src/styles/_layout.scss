@@ -105,6 +105,15 @@ body {
   }
 }
 
+// Ссылка на 3D-версию: акцентный цвет, чтобы отличалась от якорей страницы.
+.nav__link--accent {
+  color: var(--color-accent);
+
+  @include up('lg') {
+    color: var(--color-accent);
+  }
+}
+
 .header__actions {
   display: flex;
   gap: space(2);

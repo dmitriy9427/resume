@@ -4,7 +4,7 @@
  * бегущая строка технологий. Тексты — src/data/resume.ts (profile, marquee).
  */
 import { asLocale, pick, useTranslations } from '../i18n/ui'
-import { marquee, profile } from '../data/resume'
+import { marquee, profile, site3d } from '../data/resume'
 
 const locale = asLocale(Astro.currentLocale)
 const t = useTranslations(locale)
@@ -34,6 +34,7 @@ const t = useTranslations(locale)
     <div class="hero__actions" data-reveal>
       <a class="btn btn--lg" href="#contact" data-module="magnetic">{t('hero.cta')}</a>
       <a class="btn btn--lg btn--ghost" href="#projects" data-module="magnetic">{t('hero.projects')}</a>
+      <a class="btn btn--lg btn--ghost" href={site3d} target="_blank" rel="noopener">{t('nav.3d')} ↗</a>
     </div>
   </div>
   <div class="hero__marquee marquee" data-module="marquee" data-marquee-speed="40" aria-hidden="true">

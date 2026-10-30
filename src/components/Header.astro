@@ -1,7 +1,7 @@
 ---
 /** Шапка: монограмма, якорное меню, языки, тема, бургер. */
 import { LOCALES, asLocale, localePath, pick, stripLocale, useTranslations } from '../i18n/ui'
-import { profile } from '../data/resume'
+import { profile, site3d } from '../data/resume'
 
 const locale = asLocale(Astro.currentLocale)
 const t = useTranslations(locale)
@@ -34,6 +34,11 @@ const links = [
             </li>
           ))
         }
+        <li>
+          <a class="nav__link nav__link--accent" href={site3d} target="_blank" rel="noopener">
+            {t('nav.3d')} ↗
+          </a>
+        </li>
       </ul>
     </nav>
     <div class="header__actions">
