@@ -12,6 +12,9 @@
 
   @include down('lg') {
     gap: space(4);
+
+    // Тень с большим радиусом у каждой из 15 карточек тяжела для iPhone.
+    box-shadow: none;
   }
 
   @include up('lg') {
