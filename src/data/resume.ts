@@ -241,6 +241,18 @@ export const projects: Project[] = [
 // ─── Пет-проекты ─────────────────────────────────────────────────────────────
 export const pets = [
   {
+    title: { ru: 'micro-llm', en: 'micro-llm' } as L,
+    subtitle: { ru: 'Языковая модель GPT с нуля на PyTorch', en: 'A GPT language model from scratch in PyTorch' } as L,
+    description: {
+      ru: 'Токенайзер BPE (байтовый, как в GPT-2) и трансформер написаны вручную: внимание, маска, остаточные связи, инициализация. Цикл обучения с AdamW, прогревом и косинусным расписанием, проверочная выборка, генерация с temperature, top-k и top-p. Выгрузка карт внимания в JSON для 3D-визуализации. 845 тысяч параметров учатся за 105 секунд на Apple M4 Pro; символьный токенайзер и BPE сравниваются в «битах на байт». 20 тестов, подробный учебник с упражнениями на русском. Дальше: токенайзер на Rust/WASM и запуск модели в браузере.',
+      en: 'A byte-level BPE tokenizer (as in GPT-2) and a transformer written by hand: attention, causal mask, residual connections, initialization. A training loop with AdamW, warmup and cosine schedule, a validation split, sampling with temperature, top-k and top-p. Attention maps exported to JSON for 3D visualization. 845k parameters train in 105 seconds on an Apple M4 Pro; the character tokenizer and BPE are compared in bits per byte. 20 tests and a detailed step-by-step tutorial with exercises (in Russian). Next: a Rust/WASM tokenizer and running the model in the browser.',
+    } as L,
+    images: ['/projects/micro-llm-loss.webp', '/projects/micro-llm-sample.webp'],
+    stack: ['Python', 'PyTorch', 'Transformers', 'BPE', 'pytest'],
+    demo: undefined as string | undefined,
+    repo: 'https://github.com/dmitriy9427/micro-llm',
+  },
+  {
     title: { ru: 'Поток', en: 'Potok' } as L,
     subtitle: { ru: 'AI-чат со стримингом', en: 'Streaming AI chat' } as L,
     description: {
