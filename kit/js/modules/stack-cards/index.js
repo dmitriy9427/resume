@@ -42,7 +42,8 @@
  *    пересчёт идёт только при смене ширины или заметном (> 150px) сдвиге.
  * 2. will-change + scale у десятка больших карточек = десяток огромных слоёв
  *    (при DPR 3) — Safari упирается в память и перезагружает вкладку. На таче
- *    карточки не масштабируются и без will-change; остаётся только затемнение.
+ *    карточки без will-change, без масштабирования и без слоёв затемнения
+ *    (на Android они тоже вызывали мигание) — остаётся чистый sticky.
  * @module kit/modules/stack-cards
  */
 import { gsap } from '../../core/gsap.js'
@@ -106,7 +107,9 @@ export default function stackCards(root, ctx = {}) {
   const d = createDisposer()
   cards.forEach((card, i) => card.style.setProperty('--stack-index', i))
   // Слой затемнения в каждой карточке, кроме последней (её никто не накрывает).
-  const shades = cards.slice(0, -1).map((card) => {
+  // На таче слоёв затемнения нет: 14 анимируемых слоёв на Android съедают память GPU,
+  // карточки мигают, а кнопки пропадают.
+  const shades = (isTouch() ? [] : cards.slice(0, -1)).map((card) => {
     const shade = document.createElement('span')
     shade.className = 'stack-cards__shade'
     shade.setAttribute('aria-hidden', 'true')
@@ -147,7 +150,7 @@ export default function stackCards(root, ctx = {}) {
       card.style.removeProperty('--stack-top')
     }),
   )
-  if (ctx.reduced) return { layout, destroy: d.dispose }
+  if (ctx.reduced || touch) return { layout, destroy: d.dispose }
 
   const g = gsap.context(() => {
     cards.slice(0, -1).forEach((card, i) => {
@@ -158,7 +161,7 @@ export default function stackCards(root, ctx = {}) {
         defaults: { ease: 'none' },
         scrollTrigger: { trigger: next, start: 'top bottom', end: 'top top', scrub: true, invalidateOnRefresh: true },
       })
-      if (!touch) tl.to(card, { scale: () => (stuck() ? 1 - options.scale : 1) }, 0)
+      tl.to(card, { scale: () => (stuck() ? 1 - options.scale : 1) }, 0)
       tl.to(shades[i], { opacity: () => (stuck() ? options.dim : 0) }, 0)
     })
   }, root)

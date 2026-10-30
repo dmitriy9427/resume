@@ -58,7 +58,12 @@ const t = useTranslations(locale)
               <div class="swiper-wrapper">
                 {pet.images.map((src) => (
                   <div class="swiper-slide">
-                    <img src={withBase(src)} alt={pick(pet.title, locale)} width="1440" height="804" loading="lazy" decoding="async" />
+                    <img
+                      src={withBase(src)}
+                      srcset={`${withBase(src.replace('.webp', '-m.webp'))} 800w, ${withBase(src)} 1440w`}
+                      sizes="(max-width: 1023px) 100vw, 60vw"
+                      alt={pick(pet.title, locale)} width="1440" height="804"
+                      loading="lazy" decoding="async" />
                   </div>
                 ))}
               </div>
