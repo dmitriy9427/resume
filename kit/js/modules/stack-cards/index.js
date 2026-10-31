@@ -152,6 +152,21 @@ export default function stackCards(root, ctx = {}) {
   )
   if (ctx.reduced || touch) return { layout, destroy: d.dispose }
 
+  // Слой под transform (will-change) держим только у карточек рядом с экраном: шестнадцать
+  // постоянных слоёв размером с карточку (да ещё с большой тенью) съедают память видеокарты,
+  // отсюда мигание и пропадающая шапка при прокрутке стопки.
+  if (typeof IntersectionObserver !== 'undefined') {
+    const near = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.target.classList.toggle('is-near', e.isIntersecting)),
+      { rootMargin: '60% 0px' },
+    )
+    cards.forEach((card) => near.observe(card))
+    d.add(() => {
+      near.disconnect()
+      cards.forEach((card) => card.classList.remove('is-near'))
+    })
+  }
+
   const g = gsap.context(() => {
     cards.slice(0, -1).forEach((card, i) => {
       const next = cards[i + 1]

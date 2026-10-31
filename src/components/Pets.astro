@@ -60,7 +60,7 @@ const t = useTranslations(locale)
                   <div class="swiper-slide">
                     <img
                       src={withBase(src)}
-                      srcset={`${withBase(src.replace('.webp', '-m.webp'))} 640w, ${withBase(src)} 1280w`}
+                      srcset={`${withBase(src.replace('.webp', '-m.webp'))} 600w, ${withBase(src)} 1000w`}
                       sizes="(max-width: 1023px) 100vw, 60vw"
                       alt={pick(pet.title, locale)} width="1440" height="804"
                       loading="lazy" decoding="async" />
