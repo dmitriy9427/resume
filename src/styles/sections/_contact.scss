@@ -19,6 +19,12 @@
   }
 }
 
+// WebGL-сцена (тот же модуль aurora, что на первом экране, но с кольцом).
+// Маска сверху: сияние проявляется плавно, без резкой границы с прошлым блоком.
+.contact__scene {
+  mask-image: linear-gradient(transparent, #000 45%);
+}
+
 .contact__inner {
   display: grid;
   gap: space(8);

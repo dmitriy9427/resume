@@ -10,6 +10,7 @@ import { kitModules } from 'kit/js/modules/index.js'
 const projectModules = {
   aurora: lazy(() => import('../modules/aurora/index')),
   'copy-text': lazy(() => import('../modules/copy-text/index')),
+  recede: lazy(() => import('../modules/recede/index')),
   spotlight: lazy(() => import('../modules/spotlight/index')),
 }
 

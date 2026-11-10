@@ -262,8 +262,14 @@ body {
     transition: opacity 0.4s;
   }
 
+  // Тень под наклонённой карточкой (наклон делает модуль spotlight) — карточка «приподнята».
+  transition:
+    border-color 0.4s,
+    box-shadow 0.4s;
+
   @include hover {
     border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-border));
+    box-shadow: 0 28px 60px -32px color-mix(in srgb, var(--color-accent) 55%, transparent);
 
     &::before {
       opacity: 1;

@@ -1,5 +1,5 @@
 ---
-/** Контакты: крупный призыв, e-mail с копированием, ссылки, PDF. Данные — contacts в src/data/resume.ts. */
+/** Контакты: WebGL-сцена с кольцом (модуль aurora), крупный призыв, e-mail с копированием, ссылки, PDF. Данные — contacts в src/data/resume.ts. */
 import { asLocale, useTranslations, withBase } from '../i18n/ui'
 import { contacts } from '../data/resume'
 
@@ -9,6 +9,7 @@ const links = contacts.links.filter((link) => link.href)
 ---
 
 <section class="section contact" id="contact">
+  <canvas class="aurora contact__scene" data-module="aurora" data-aurora-shape="ring" aria-hidden="true"></canvas>
   <div class="container contact__inner">
     <p class="section-title__index" data-reveal>05</p>
     <h2 class="contact__title" data-module="split-text" data-split-text-type="words">{t('contact.title')}</h2>
